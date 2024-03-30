@@ -15,7 +15,7 @@ const CategoriaInicio = (props) => {
     return (
         <div className="categoria" style={backgroundStyles}>
             <h2>{title}</h2>
-            <button class="btn"> Ver más
+            <button className="btn"> Ver más
             </button>
         </div>
     )
