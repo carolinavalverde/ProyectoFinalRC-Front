@@ -12,11 +12,14 @@ import "./App.css";
 // import RutasProtegidas from "./components/routes/RutasProtegidas";
 // import RutasAdmin from "./components/routes/RutasAdmin";
 // import { useState } from "react";
-import Inicio from "./components/pages/Inicio";
+
+
+// import Inicio from "./components/pages/Inicio";
+import CarouselBootstrap from "./components/pages/Carousel";
 
 function App() {
   return (<div>
-      <Inicio/>
+      <CarouselBootstrap/>
   </div>)
 }
 
