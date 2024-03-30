@@ -13,14 +13,14 @@ import "./App.css";
 // import RutasAdmin from "./components/routes/RutasAdmin";
 // import { useState } from "react";
 
-import Inicio from "./components/pages/Inicio";
-
+// import Inicio from "./components/pages/Inicio";
+import { CategoriaInicio } from "./components/pages/CategoriaInicio";
 
 function App() {
   
 
   return (
-    <Inicio></Inicio>
+    <CategoriaInicio />
   );
 }
 
