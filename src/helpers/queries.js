@@ -1,4 +1,5 @@
 const APIProductos = import.meta.env.VITE_API_PRODUCTO;
+
 console.log(APIProductos);
 
 export const crearProducto = async (productoNuevo) => {
