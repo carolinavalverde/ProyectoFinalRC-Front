@@ -1,7 +1,6 @@
 const APIProductos = import.meta.env.VITE_API_PRODUCTO;
+console.log(APIProductos);
 
-
-//POST
 export const crearProducto = async (productoNuevo) => {
     try {
       const respuesta = await fetch(APIProductos, {
@@ -11,9 +10,9 @@ export const crearProducto = async (productoNuevo) => {
         },
         body: JSON.stringify(productoNuevo),
       });
-     
+      console.log(respuesta);
       return respuesta;
     } catch (error) {
-     
+      console.log(error);
     }
   };
