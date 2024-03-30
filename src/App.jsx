@@ -16,11 +16,40 @@ import RutasAdmin from "./components/routes/RutasAdmin";
 import { useState } from "react";
 
 function App() {
-  
+  const usuario =
+    JSON.parse(sessionStorage.getItem("loginVermontRestaurant")) || "";
+  const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
 
   return (
     <BrowserRouter>
-      
+      <Menu
+        usuarioLogueado={usuarioLogueado}
+        setUsuarioLogueado={setUsuarioLogueado}
+      ></Menu>
+      <Routes>
+        <Route path="/" element={<Inicio></Inicio>}></Route>
+        <Route
+          path="/detalleproducto/:id"
+          element={<DetalleProducto></DetalleProducto>}
+        ></Route>
+        <Route
+          exact
+          path="/login"
+          element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}
+        ></Route>
+         <Route path="/registro" element={<Registro></Registro>}></Route>
+        <Route
+          exact
+          path="/administrador/*"
+          element={
+            <RutasProtegidas>
+              <RutasAdmin></RutasAdmin>
+            </RutasProtegidas>
+          }
+        ></Route>
+        <Route path="*" element={<Error404></Error404>}></Route>
+      </Routes>
+      <Footer></Footer>
     </BrowserRouter>
   );
 }
