@@ -5,22 +5,28 @@ import { leerProductos } from "../../helpers/queries";
 import { Link } from "react-router-dom";
 
 const Administrador = () => {
-  const [] = useState([]);
+const [productos, setProductos] = useState([])
 
-  useEffect(() => {
-   
+  useEffect(()=>{
+
     obtenerProductos();
-  }, []);
+  }, [])
 
-  const obtenerProductos = async () => {
-    
-  };
+  const obtenerProductos = async()=>{
+    const respuesta = await leerProductos();
+    if(respuesta.status === 200){
+      const datos = await respuesta.json();
+      setProductos(datos);
+    }else{
+     
+    }
+  }
 
   return (
     <section className="container mainSection">
       <div className="d-flex justify-content-between align-items-center mt-5">
         <h1 className="display-4 ">Productos disponibles</h1>
-        <Link className="btn btn-primary" to="/administrador/crear">
+        <Link className="btn btn-primary" to='/administrador/crear'>
           <i className="bi bi-file-earmark-plus"></i>
         </Link>
       </div>
@@ -37,7 +43,7 @@ const Administrador = () => {
           </tr>
         </thead>
         <tbody>
-         
+          
         </tbody>
       </Table>
     </section>
