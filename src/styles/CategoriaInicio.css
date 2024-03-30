@@ -12,6 +12,13 @@
 
 }
 
+.categoria h2{
+    text-transform: uppercase;
+    color: white;
+    font-weight: 200;
+    font-size: 4.0rem;
+}
+
 .btn {
     position: relative;
     font-size: 17px;
