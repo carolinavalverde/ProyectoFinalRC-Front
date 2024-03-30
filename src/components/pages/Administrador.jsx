@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { leerProductos } from "../../helpers/queries";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import '../../style/Administrador.css';
 
 const Administrador = () => {
   const [productos, setProductos] = useState([]);
@@ -31,9 +32,9 @@ const Administrador = () => {
   };
 
   return (
-    <section className="container mainSection">
+    <section className="container mainSection BgAdmin">
       <div className="d-flex justify-content-between align-items-center mt-5">
-        <h1 className="display-4 ">Productos disponibles</h1>
+        <h1 className="display-4 TituloAdmin">Productos disponibles</h1>
         <Link className="btn btn-primary" to="/administrador/crear">
           <i className="bi bi-file-earmark-plus"></i>
         </Link>
@@ -41,7 +42,7 @@ const Administrador = () => {
       <hr />
       <Table responsive striped bordered hover>
         <thead>
-          <tr className="text-center">
+          <tr className="text-center TextoAdmin">
             <th>Cod</th>
             <th>Producto</th>
             <th>Precio</th>
