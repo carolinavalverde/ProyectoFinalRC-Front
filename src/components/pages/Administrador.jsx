@@ -3,30 +3,38 @@ import ItemProducto from "./producto/ItemProducto";
 import { useEffect, useState } from "react";
 import { leerProductos } from "../../helpers/queries";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Administrador = () => {
-const [productos, setProductos] = useState([])
+  const [productos, setProductos] = useState([]);
 
-  useEffect(()=>{
-
+  useEffect(() => {
     obtenerProductos();
-  }, [])
+  }, []);
 
-  const obtenerProductos = async()=>{
-    const respuesta = await leerProductos();
-    if(respuesta.status === 200){
-      const datos = await respuesta.json();
-      setProductos(datos);
-    }else{
-     
+  const obtenerProductos = async () => {
+    try {
+      const respuesta = await leerProductos();
+      if (respuesta.status === 200) {
+        const datos = await respuesta.json();
+        setProductos(datos);
+      } else {
+        throw new Error("Error al cargar los productos");
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: error.message,
+      });
     }
-  }
+  };
 
   return (
     <section className="container mainSection">
       <div className="d-flex justify-content-between align-items-center mt-5">
         <h1 className="display-4 ">Productos disponibles</h1>
-        <Link className="btn btn-primary" to='/administrador/crear'>
+        <Link className="btn btn-primary" to="/administrador/crear">
           <i className="bi bi-file-earmark-plus"></i>
         </Link>
       </div>
@@ -43,7 +51,13 @@ const [productos, setProductos] = useState([])
           </tr>
         </thead>
         <tbody>
-          
+          {productos.map((producto) => (
+            <ItemProducto
+              key={producto.id}
+              producto={producto}
+              setProductos={setProductos}
+            ></ItemProducto>
+          ))}
         </tbody>
       </Table>
     </section>
