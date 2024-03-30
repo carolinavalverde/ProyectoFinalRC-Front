@@ -14,13 +14,17 @@ import "./App.css";
 // import { useState } from "react";
 
 // import Inicio from "./components/pages/Inicio";
-import { CategoriaInicio } from "./components/pages/CategoriaInicio";
+import CategoriaInicio from "./components/pages/CategoriaInicio";
 
 function App() {
-  
-
   return (
-    <CategoriaInicio />
+    <div>
+      <CategoriaInicio title="Entradas" backgroundImage="../src/components/assets/img/entradas1.avif" />
+      <CategoriaInicio title="Platillos" backgroundImage="../src/components/assets/img/platillos1.avif"  />
+      <CategoriaInicio title="Bebidas" backgroundImage="../src/components/assets/img/bebidas1.jpg"  />
+      <CategoriaInicio title="Postres" backgroundImage="../src/components/assets/img/postres1.avif" />
+    </div>
+
   );
 }
 
