@@ -6,7 +6,16 @@ const RutasAdmin = () => {
   return (
     <Routes>
       <Route exact path="/" element={<Administrador></Administrador>}></Route>
-    
+      <Route
+        exact
+        path="/crear"
+        element={
+          <FormularioProducto
+            editando={false}
+            titulo="Nuevo producto"
+          ></FormularioProducto>
+        }
+      ></Route>
       <Route
         exact
         path="/editar/:id"
