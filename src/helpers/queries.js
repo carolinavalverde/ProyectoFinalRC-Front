@@ -25,4 +25,6 @@ export const crearProducto = async (productoNuevo) => {
   } catch (error) {
     console.log(error);
   }
+
 };
+

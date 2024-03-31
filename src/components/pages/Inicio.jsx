@@ -1,3 +1,4 @@
+
 import React from "react";
 import '../../styles/Inicio.css'
 import CategoriaInicio from "./CategoriaInicio";
@@ -14,3 +15,4 @@ const Inicio = () => {
 }
 
 export default Inicio;
+
