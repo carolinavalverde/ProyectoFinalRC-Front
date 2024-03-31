@@ -10,6 +10,15 @@
   color: #9e2a2e;
 }
 
+.TextoNav {
+  font-family: "Josefin Sans", sans-serif;
+  color: #e09f3e;
+  font-size: 1.2em;
+}
+
+.TextoNav:hover {
+  color: #9e2a2e;
+}
 
 .BgNav {
   background-color: #540b0e;
