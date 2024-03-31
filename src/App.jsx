@@ -1,7 +1,6 @@
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import "bootstrap-icons/font/bootstrap-icons.min.css";
 import "./App.css";
-import CarouselPage from "./components/pages/Carousel";
 // import Footer from "./components/common/Footer";
 // import Menu from "./components/common/Menu";
 // import Error404 from "./components/pages/Error404";
@@ -15,11 +14,11 @@ import CarouselPage from "./components/pages/Carousel";
 // import { useState } from "react";
 
 
-// import Inicio from "./components/pages/Inicio";
+import Inicio from "./components/pages/Inicio";
 
 function App() {
   return (<div>
-        <CarouselPage></CarouselPage>
+        <Inicio></Inicio>
   </div>)
 }
 
