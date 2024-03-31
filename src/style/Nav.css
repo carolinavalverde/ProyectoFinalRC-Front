@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.LogoNav {
+  font-family: "Pacifico", cursive;
+  color: #e09f3e;
+}
+
+.LogoNav:hover {
+  color: #9e2a2e;
+}
+
+
+.BgNav {
+  background-color: #540b0e;
+}
