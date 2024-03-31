@@ -1,6 +1,7 @@
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import "bootstrap-icons/font/bootstrap-icons.min.css";
 import "./App.css";
+import CarouselPage from "./components/pages/Carousel";
 // import Footer from "./components/common/Footer";
 // import Menu from "./components/common/Menu";
 // import Error404 from "./components/pages/Error404";
@@ -15,11 +16,10 @@ import "./App.css";
 
 
 // import Inicio from "./components/pages/Inicio";
-import CarouselBootstrap from "./components/pages/Carousel";
 
 function App() {
   return (<div>
-      <CarouselBootstrap/>
+        <CarouselPage></CarouselPage>
   </div>)
 }
 
