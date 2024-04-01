@@ -63,8 +63,12 @@ function App() {
       <hr />
       <h2>Platillos</h2>
       <MenuCategorias title="Entradas" />
+      <hr />
+
       <h2>Bebidas</h2>
       <MenuCategorias title="Entradas" />
+      <hr />
+
       <h2>Postres</h2>
       <MenuCategorias title="Entradas" />
     </div>
