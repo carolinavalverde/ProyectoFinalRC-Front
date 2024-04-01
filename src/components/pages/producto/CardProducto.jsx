@@ -7,7 +7,7 @@ const CardProducto = (props) => {
     const {title} = props
 
     return (
-        <div>
+        <div className="cardContainer">
             <h1>{title}</h1>
             <div className="card">
                 <div className="image"><img src={img1} alt="Bebidas" style={{ width: '100%', height: '100%' }} /></div>

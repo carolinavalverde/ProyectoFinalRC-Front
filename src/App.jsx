@@ -13,7 +13,6 @@ function App() {
     <div>
       <CarouselPage></CarouselPage>
       <hr />
-      <h2>Entradas</h2>
       <MenuCategorias title="Entradas" />
       <hr />
       <h2>Platillos</h2>
