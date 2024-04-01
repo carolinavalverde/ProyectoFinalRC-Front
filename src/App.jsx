@@ -4,12 +4,14 @@ import "./App.css";
 import MenuCategorias from "./components/pages/MenuCategorias";
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Carousel } from "bootstrap";
+import CarouselPage from "./components/pages/CarouselPage";
 
 function App() {
 
   return (
     <div>
-      <Button>HIIIIIIIIIIIIIIIIIIII</Button>
+      <CarouselPage></CarouselPage>
       <hr />
       <h2>Entradas</h2>
       <MenuCategorias title="Entradas" />
