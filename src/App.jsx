@@ -1,6 +1,7 @@
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import "bootstrap-icons/font/bootstrap-icons.min.css";
 import "./App.css";
+import MenuCategorias from "./components/pages/MenuCategorias";
 // import Footer from "./components/common/Footer";
 // import Menu from "./components/common/Menu";
 // import Error404 from "./components/pages/Error404";
@@ -14,7 +15,6 @@ import "./App.css";
 // import RutasProtegidas from "./components/routes/RutasProtegidas";
 // import RutasAdmin from "./components/routes/RutasAdmin";
 // import { useState } from "react";
-import Categorias from "./components/pages/Categoria";
 
 
 function App() {
@@ -57,7 +57,16 @@ function App() {
 
   return (
     <div>
-      <Categorias title="Entradas"></Categorias>
+      <hr />
+      <h2>Entradas</h2>
+      <MenuCategorias title="Entradas" />
+      <hr />
+      <h2>Platillos</h2>
+      <MenuCategorias title="Entradas" />
+      <h2>Bebidas</h2>
+      <MenuCategorias title="Entradas" />
+      <h2>Postres</h2>
+      <MenuCategorias title="Entradas" />
     </div>
   )
 
