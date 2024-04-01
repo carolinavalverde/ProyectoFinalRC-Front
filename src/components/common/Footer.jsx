@@ -14,7 +14,6 @@ const Footer = () => {
             </Link>
           </section>
           <section className="col-md-4 col-lg-4 TextoFooter text-center">
-            {" "}
             <div>
               <h6>CONTACTANOS</h6>
               <p>Jueves a Domingos de 20pm a 02am</p>
@@ -33,7 +32,33 @@ const Footer = () => {
               </ul>
             </div>
           </section>
-          <section className="col-md-3 col-lg-4 TextoFooter"></section>
+          <section className="col-md-3 col-lg-4 TextoFooter">
+            <div className="text-end">
+              <h5>Seguinos</h5>
+              <ul className="list-unstyled">
+                <div>
+                  <Link to="/error404">
+                    <i className="bi bi-instagram fs-4 TextoFooter"></i>
+                  </Link>
+                  <Link to="/error404" className="mx-2">
+                    <i className="bi bi-facebook fs-4 TextoFooter"></i>
+                  </Link>
+                  <Link to="/error404">
+                    <i className="bi bi-twitter fs-4 TextoFooter"></i>
+                  </Link>
+                </div>
+                <section className="LogoNav d-flex align-items-end justify-content-end pt-5">
+                  <div className="d-flex align-items-center">
+                    <i className="bi bi-fire fs-3 me-3"></i>
+                    <div>
+                      <span className="d-block">VERMONT</span>
+                      <span className="d-block">RESTAURANT</span>
+                    </div>
+                  </div>
+                </section>
+              </ul>
+            </div>
+          </section>
         </div>
       </div>
     </footer>
