@@ -7,14 +7,14 @@ const Footer = () => {
       <div className="container text-center text-md-start">
         <div className="row">
           <section className="col-md-5 col-lg-4 text-center text-lg-start">
-          
+            <Link className="nav-link TextoFooter" to="/nosotros">
+              <div className="TextoFooter">
+                <h5>Acerca de Nosotros</h5>
+              </div>
+            </Link>
           </section>
-          <section className="col-md-4 col-lg-4 TextoFooter text-center">
-           
-          </section>
-          <section className="col-md-3 col-lg-4 TextoFooter">
-           
-          </section>
+          <section className="col-md-4 col-lg-4 TextoFooter text-center"></section>
+          <section className="col-md-3 col-lg-4 TextoFooter"></section>
         </div>
       </div>
     </footer>
