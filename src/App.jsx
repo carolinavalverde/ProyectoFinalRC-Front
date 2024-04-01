@@ -2,6 +2,36 @@
 // import "bootstrap-icons/font/bootstrap-icons.min.css";
 import "./App.css";
 import MenuCategorias from "./components/pages/MenuCategorias";
+import Button from 'react-bootstrap/Button'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+function App() {
+
+  return (
+    <div>
+      <Button>HIIIIIIIIIIIIIIIIIIII</Button>
+      <hr />
+      <h2>Entradas</h2>
+      <MenuCategorias title="Entradas" />
+      <hr />
+      <h2>Platillos</h2>
+      <MenuCategorias title="Entradas" />
+      <hr />
+
+      <h2>Bebidas</h2>
+      <MenuCategorias title="Entradas" />
+      <hr />
+
+      <h2>Postres</h2>
+      <MenuCategorias title="Entradas" />
+    </div>
+  )
+
+}
+
+export default App;
+
+
 // import Footer from "./components/common/Footer";
 // import Menu from "./components/common/Menu";
 // import Error404 from "./components/pages/Error404";
@@ -17,7 +47,11 @@ import MenuCategorias from "./components/pages/MenuCategorias";
 // import { useState } from "react";
 
 
-function App() {
+
+
+
+
+
   // const usuario =
   //   JSON.parse(sessionStorage.getItem("loginVermontRestaurant")) || "";
   // const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
@@ -54,26 +88,3 @@ function App() {
     //   <Footer></Footer>
     // </BrowserRouter>
   // );
-
-  return (
-    <div>
-      <hr />
-      <h2>Entradas</h2>
-      <MenuCategorias title="Entradas" />
-      <hr />
-      <h2>Platillos</h2>
-      <MenuCategorias title="Entradas" />
-      <hr />
-
-      <h2>Bebidas</h2>
-      <MenuCategorias title="Entradas" />
-      <hr />
-
-      <h2>Postres</h2>
-      <MenuCategorias title="Entradas" />
-    </div>
-  )
-
-}
-
-export default App;
