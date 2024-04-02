@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { NavLink, Link, useNavigate } from "react-router-dom";
-import "../../style/Nav.css";
+import "../../styles/Nav.css";
 
 const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
   const navegacion = useNavigate();
