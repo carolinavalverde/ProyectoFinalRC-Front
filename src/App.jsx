@@ -1,19 +1,5 @@
 import React from "react";
 import "./App.css";
-
-
-import PaginaMenuCategorias from "./components/pages/Menu/PaginaMenuCategorias";
-function App() {
-
-  return (
-    <PaginaMenuCategorias></PaginaMenuCategorias>
-  )
-
-}
-
-export default App;
-
-
 // import Footer from "./components/common/Footer";
 // import Menu from "./components/common/Menu";
 // import Error404 from "./components/pages/Error404";
@@ -28,11 +14,12 @@ export default App;
 // import RutasAdmin from "./components/routes/RutasAdmin";
 // import { useState } from "react";
 
+import PaginaMenuCategorias from "./components/pages/Menu/PaginaMenuCategorias";
+function App() {
 
-
-
-
-
+  return (
+    <PaginaMenuCategorias></PaginaMenuCategorias>
+    
 
   // const usuario =
   //   JSON.parse(sessionStorage.getItem("loginVermontRestaurant")) || "";
@@ -70,3 +57,16 @@ export default App;
     //   <Footer></Footer>
     // </BrowserRouter>
   // );
+
+  )
+
+}
+
+export default App;
+
+
+
+
+
+
+
