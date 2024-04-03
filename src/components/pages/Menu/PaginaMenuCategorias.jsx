@@ -1,7 +1,6 @@
 import React from "react";
 import "../../../App.css";
 import MenuCategorias from "./MenuCategorias"
-import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CarouselPage from "../Menu/CarouselPage";
 
