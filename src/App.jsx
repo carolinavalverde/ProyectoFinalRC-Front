@@ -1,5 +1,4 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.min.css";
+import React from "react";
 import "./App.css";
 import Footer from "./components/common/Footer";
 import Menu from "./components/common/Menu";
@@ -17,13 +16,13 @@ import RutasProtegidas from "./components/routes/RutasProtegidas";
 import RutasAdmin from "./components/routes/RutasAdmin";
 import { useState } from "react";
 
+import PaginaMenuCategorias from "./components/pages/Menu/PaginaMenuCategorias";
 function App() {
-  const usuario =
-    JSON.parse(sessionStorage.getItem("loginVermontRestaurant")) || "";
-  const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
 
   return (
+
     <BrowserRouter>
+      <PaginaMenuCategorias></PaginaMenuCategorias>
       <Menu
         usuarioLogueado={usuarioLogueado}
         setUsuarioLogueado={setUsuarioLogueado}
@@ -62,6 +61,14 @@ function App() {
       <Footer></Footer>
     </BrowserRouter>
   );
+
 }
 
 export default App;
+
+
+
+
+
+
+
