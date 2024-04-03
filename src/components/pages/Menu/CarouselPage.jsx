@@ -3,7 +3,6 @@ import Carousel from 'react-bootstrap/Carousel';
 import img1 from '../../img/restaurante1.jpg'
 import img2 from '../../img/pizzas1.jpg'
 import img3 from '../../img/postres1.avif'
-// import '../../styles/CarouselStyles.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

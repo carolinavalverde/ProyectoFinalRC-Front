@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../style/Card.css"
+import "../../../styles/Card.css"
 import img1 from "../../img/bebidas1.avif"
 
 const CardProducto = (props) => {

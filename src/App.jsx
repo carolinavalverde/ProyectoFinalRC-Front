@@ -15,8 +15,9 @@ import Login from "./components/pages/Login";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import RutasAdmin from "./components/routes/RutasAdmin";
 import { useState } from "react";
-
 import PaginaMenuCategorias from "./components/pages/Menu/PaginaMenuCategorias";
+import "bootstrap-icons/font/bootstrap-icons.min.css";
+
 function App() {
 
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import CardProducto from "./CardProducto";
-import "../../../style/menuCategoria.css"
+import "../../../styles/menuCategoria.css"
 
 const MenuCategorias = () => {
 
