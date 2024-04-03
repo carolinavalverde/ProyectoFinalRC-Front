@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { leerProductos } from "../../helpers/queries";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import '../../style/Administrador.css';
+import '../../styles/Administrador.css';
 
 const Administrador = () => {
   const [productos, setProductos] = useState([]);

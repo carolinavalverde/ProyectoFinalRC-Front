@@ -8,10 +8,19 @@
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
+
 }
 .mainSection {
   flex-grow: 1;
+
+}
+
+body{
+  margin: 0%;
+  padding: 0%;
+
   background-color: #fff380;
+
 }
 
 .itemsContainer{
@@ -26,4 +35,5 @@
   height: 0.2vh;
   background-color: rgb(0, 0, 0);
   width: 90vw;
+
 }
