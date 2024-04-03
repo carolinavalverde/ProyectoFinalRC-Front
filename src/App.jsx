@@ -1,9 +1,6 @@
 import React from "react";
 import "./App.css";
-// import MenuCategorias from "./components/pages/Menu/MenuCategorias";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import { Carousel } from "bootstrap";
-// import CarouselPage from "./components/pages/Menu/CarouselPage";
+
 
 import PaginaMenuCategorias from "./components/pages/Menu/PaginaMenuCategorias";
 function App() {
