@@ -11,7 +11,7 @@ const CardProducto = (props) => {
             <h1>{title}</h1>
             <div className="card">
                 <div className="image"><img src={img1} alt="Bebidas" style={{ width: '100%', height: '100%' }} /></div>
-                <span className="title">Cool Chair</span>
+                <span className="title">Dish name</span>
                 <span className="price">$100</span>
             </div>
         </div>

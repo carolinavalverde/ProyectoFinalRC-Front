@@ -10,19 +10,21 @@
     background: #fff;
     padding: 0.5em;
     padding-bottom: 3.4em;
+    
 }
 
 .card::after {
     content: "Add to Cart";
     padding-top: 1.25em;
-    padding-left: 1.25em;
+    /* padding-left: 1.25; */
     position: absolute;
     left: 0;
     bottom: -60px;
     background: #00AC7C;
     color: #fff;
-    height: 2.5em;
-    width: 90%;
+    height: 4em;
+    width: 100%;
+    text-align: center;
     transition: all 80ms;
     font-weight: 600;
     text-transform: uppercase;

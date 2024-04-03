@@ -13,6 +13,18 @@ const MenuCategorias = () => {
             <CardProducto />
             <CardProducto />
             <CardProducto />
+            <CardProducto />
+            <CardProducto />
+            <CardProducto />            <CardProducto />
+            <CardProducto />
+            <CardProducto />
+            <CardProducto />            <CardProducto />
+            <CardProducto />
+            <CardProducto />
+            <CardProducto />            <CardProducto />
+            <CardProducto />
+            <CardProducto />
+
         </div>
     )
 }

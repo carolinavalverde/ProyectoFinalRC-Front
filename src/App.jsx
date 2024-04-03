@@ -11,20 +11,23 @@ function App() {
 
   return (
     <div className="itemsContainer">
+      <hr/>
       <CarouselPage></CarouselPage>
-      <hr />
+      <hr/>
+
+      <h2 style={{ fontWeight: '100', fontSize: '3rem', textTransform: 'uppercase' }}>Entradas</h2>
       <MenuCategorias />
       <hr />
-      <h2>Platillos</h2>
-      <MenuCategorias title="Entradas" />
+      <h2 style={{ fontWeight: '100', fontSize: '3rem', textTransform: 'uppercase' }}>Platillos</h2>
+      <MenuCategorias />
       <hr />
 
-      <h2>Bebidas</h2>
-      <MenuCategorias title="Entradas" />
+      <h2 style={{ fontWeight: '100', fontSize: '3rem', textTransform: 'uppercase' }}>Bebidas</h2>
+      <MenuCategorias />
       <hr />
 
-      <h2>Postres</h2>
-      <MenuCategorias title="Entradas" />
+      <h2 style={{ fontWeight: '100', fontSize: '3rem', textTransform: 'uppercase' }}>Postres</h2>
+      <MenuCategorias />
     </div>
   )
 

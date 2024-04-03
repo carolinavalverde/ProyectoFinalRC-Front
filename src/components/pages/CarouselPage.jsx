@@ -18,7 +18,7 @@ const CarouselPage = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
+                        <h3>Vermont, el sabor de la calidad</h3>
                         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -30,7 +30,7 @@ const CarouselPage = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
+                        <h3>Vermont, el sabor de la calidad</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -40,9 +40,8 @@ const CarouselPage = () => {
                         src={img3}
                         alt="Third slide"
                     />
-
                     <Carousel.Caption>
-                        <h3>Third slide label</h3>
+                        <h3>Vermont, el sabor de la calidad</h3>
                         <p>
                             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
                         </p>
