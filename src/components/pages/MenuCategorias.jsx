@@ -6,7 +6,7 @@ const MenuCategorias = () => {
 
     return (
         <div className="menuCategoria">
-            <CardProducto title="Entradas"/>
+            <CardProducto />
             <CardProducto />
             <CardProducto />
             <CardProducto />

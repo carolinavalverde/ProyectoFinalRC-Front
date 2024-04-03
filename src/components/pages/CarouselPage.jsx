@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const CarouselPage = () => {
     return (
         <div>
-            <Carousel>
+            <Carousel style={{ width: '80vw' }}>
                 <Carousel.Item>
                     <img style={{ height: '90vh' }}
                         className="d-block w-100"

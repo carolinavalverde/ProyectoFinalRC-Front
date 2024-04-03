@@ -10,10 +10,10 @@ import CarouselPage from "./components/pages/CarouselPage";
 function App() {
 
   return (
-    <div>
+    <div className="itemsContainer">
       <CarouselPage></CarouselPage>
       <hr />
-      <MenuCategorias title="Entradas" />
+      <MenuCategorias />
       <hr />
       <h2>Platillos</h2>
       <MenuCategorias title="Entradas" />

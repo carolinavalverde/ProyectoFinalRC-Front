@@ -17,3 +17,11 @@
 body{
   background-color: #fff3B0;
 }
+
+.itemsContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff3B0;
+}
