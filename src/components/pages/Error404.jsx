@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import "./Error404.css";
+import "../../styles/Error404.css";
 
 const Error404 = () => {
     return (
