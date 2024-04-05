@@ -76,10 +76,16 @@ const Login = ({ setUsuarioLogueado }) => {
                 {errors.password?.message}
               </Form.Text>
             </Form.Group>
-
-            <Button variant="primary" type="submit">
+            <div className="d-flex justify-content-center">
+            <Button className="btn btn-success" type="submit">
               Ingresar
             </Button>
+
+            <Button className="btn btn-success" type="submit">
+              Registrar
+            </Button>
+            </div>
+           
           </Form>
         </Card.Body>
       </Card>
