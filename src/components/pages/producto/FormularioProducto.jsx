@@ -22,7 +22,6 @@ const FormularioProducto = ({ editando, titulo }) => {
 
   useEffect(() => {
     if (editando) {
-      //solicitar y mostrar el producto en el formullario
       cargarProductoEnFormulario();
     }
   }, []);
@@ -30,9 +29,8 @@ const FormularioProducto = ({ editando, titulo }) => {
   const cargarProductoEnFormulario = async () => {
     const respuesta = await obtenerProducto(id);
     if (respuesta.status === 200) {
-      //extraer el producto de la respuesta
       const productoBuscado = await respuesta.json();
-      //cargar los datos del producto en el formulario
+
       setValue("nombreProducto", productoBuscado.nombreProducto);
       setValue("precio", productoBuscado.precio);
       setValue("imagen", productoBuscado.imagen);
@@ -43,18 +41,17 @@ const FormularioProducto = ({ editando, titulo }) => {
   };
 
   const datosValidados = async (producto) => {
-    //console.log(producto);
     if (editando) {
       const respuesta = await editarProducto(producto, id);
       console.log(respuesta);
-      //si recibi status 200 se edito correctamente
+
       if (respuesta.status === 200) {
         Swal.fire({
           title: "Producto editado",
           text: `El producto: ${producto.nombreProducto} fue editado correctamente`,
           icon: "success",
         });
-        //redireccionar
+
         navegacion("/administrador");
       } else {
         Swal.fire({
@@ -64,7 +61,6 @@ const FormularioProducto = ({ editando, titulo }) => {
         });
       }
     } else {
-      //le voy a pedir a la api crear el producto nuevo
       const respuesta = await crearProducto(producto);
       if (respuesta.status === 201) {
         Swal.fire({
@@ -72,7 +68,7 @@ const FormularioProducto = ({ editando, titulo }) => {
           text: `El producto: ${producto.nombreProducto} fue creado correctamente`,
           icon: "success",
         });
-        //resetear el form
+
         reset();
       } else {
         Swal.fire({
@@ -93,7 +89,7 @@ const FormularioProducto = ({ editando, titulo }) => {
           <Form.Label>Producto*</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Ej: Cafe"
+            placeholder="Ej: Salmon Marinado"
             {...register("nombreProducto", {
               required: "El nombre del producto es un dato obligatorio",
               minLength: {
@@ -172,7 +168,7 @@ const FormularioProducto = ({ editando, titulo }) => {
           <Form.Label>Descripción breve*</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Ej: Una taza de café suave y aromático."
+            placeholder="Ej: Salmón fresco y tierno, una delicia"
             as="textarea"
             {...register("descripcion_breve", {
               required: "La descripcion breve es obligatoria",
@@ -194,7 +190,7 @@ const FormularioProducto = ({ editando, titulo }) => {
           <Form.Label>Descripción Amplia*</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Ej: El café americano es una bebida caliente que consiste en un espresso diluido con agua caliente, lo que resulta en una taza de café suave y aromático. Es una opción popular para aquellos que prefieren un café menos intenso que el espresso tradicional. Perfecto para disfrutar en cualquier momento del día."
+            placeholder="Ej: Salmón fresco y tierno, una delicia para los amantes del buen comer, con su textura suave y su sabor delicado que deleita los sentidos en cada bocado."
             as="textarea"
             {...register("descripcion_amplia", {
               required: "La descripcion amplia es obligatoria",
@@ -212,6 +208,7 @@ const FormularioProducto = ({ editando, titulo }) => {
             {errors.descripcion_amplia?.message}
           </Form.Text>
         </Form.Group>
+
         <Button type="submit" variant="success">
           Guardar
         </Button>
