@@ -2,7 +2,8 @@ import { Form, Button, Container, Card } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import { login } from "../../helpers/queries";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import "../../styles/Login.css";
 
 const Login = ({ setUsuarioLogueado }) => {
   const {
@@ -34,17 +35,17 @@ const Login = ({ setUsuarioLogueado }) => {
   };
 
   const irARegistro = () => {
-    window.location.href = "/registro";
+    navegacion("/registro");
   };
 
   return (
-    <Container>
-      <Card className="my-5">
+    <Container className="d-flex justify-content-center">
+      <section className="my-5 col-6 container bg-white bg-opacity-50 rounded">
         <Card.Header as="h5" className="TituloLogin display-6 text-center ">
           Login
         </Card.Header>
-        <Card.Body className="TextoLogin d-flex justify-content-center ">
-          <Form onSubmit={handleSubmit(onSubmit)} className="py-3">
+        <Card.Body className="TextoLogin d-flex justify-content-center">
+          <Form onSubmit={handleSubmit(onSubmit)} className="py-3 w-100">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -83,26 +84,29 @@ const Login = ({ setUsuarioLogueado }) => {
               </Form.Text>
             </Form.Group>
             <section className="d-flex justify-content-star">
-              <span className="fw-bolb" onClick={irARegistro}>¿Olvidó su contraseña?</span>
+              <Link to="/registro" className="fw-bold">
+                ¿Olvidó su contraseña?
+              </Link>
             </section>
-            <div className="d-flex justify-content-center py-3">
+            <section className="py-3 d-flex row justify-content-center">
               <Button
-                className="btn btn-success bg-success text-light mx-2"
+                className="btn btn-success bg-success text-light mx-2 my-2"
+                style={{ width: "fit-content" }}
                 type="submit"
               >
                 Ingresar
               </Button>
-
               <Button
-                className="btn btn-success bg-success text-light mx-2"
-                type="submit"
+                className="btn btn-success bg-success text-light mx-2 my-2"
+                style={{ width: "fit-content" }}
+                onClick={irARegistro}
               >
                 Registrar
               </Button>
-            </div>
+            </section>
           </Form>
         </Card.Body>
-      </Card>
+      </section>
     </Container>
   );
 };
