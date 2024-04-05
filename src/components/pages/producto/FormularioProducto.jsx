@@ -85,7 +85,7 @@ const FormularioProducto = ({ editando, titulo }) => {
   };
 
   return (
-  <section className="container mainSection">
+    <section className="container mainSection">
       <h1 className="display-4 mt-5">{titulo}</h1>
       <hr />
       <Form className="my-4" onSubmit={handleSubmit(datosValidados)}>
@@ -212,7 +212,9 @@ const FormularioProducto = ({ editando, titulo }) => {
             {errors.descripcion_amplia?.message}
           </Form.Text>
         </Form.Group>
-
+        <Button type="submit" variant="success">
+          Guardar
+        </Button>
       </Form>
     </section>
   );
