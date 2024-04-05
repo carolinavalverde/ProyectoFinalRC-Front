@@ -21,13 +21,15 @@ import "bootstrap-icons/font/bootstrap-icons.min.css";
 function App() {
   return (
     <BrowserRouter>
+      <Menu></Menu>
       {/* <Menu
         usuarioLogueado={usuarioLogueado}
         setUsuarioLogueado={setUsuarioLogueado}
       ></Menu> */}
+      {/* <PaginaMenuCategorias></PaginaMenuCategorias> */}
       <Routes>
         <Route path="/" element={<Inicio></Inicio>}></Route>
-        <PaginaMenuCategorias></PaginaMenuCategorias>
+
         <Route
           path="/carritopedidos"
           element={<CarritoPedidos></CarritoPedidos>}

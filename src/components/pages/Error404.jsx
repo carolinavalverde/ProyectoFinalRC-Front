@@ -1,10 +1,14 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
+import React from "react";
+import { Container } from "react-bootstrap";
 import "../../styles/Error.css";
 
 const Error404 = () => {
-    return (
-        <main className="mainSection main-error">
+  const volverAlInicio = () => {
+    window.location.href = "/";
+  };
+
+  return (
+    <main className="mainSection main-error">
       <Container>
         <div className="text-center my-5">
           <img
@@ -13,11 +17,14 @@ const Error404 = () => {
             className="img-fluid"
           />
         </div>
+        <div className="d-flex justify-content-center pb-5">
+          <button className="btn btn-success" onClick={volverAlInicio}>
+            Volver al Inicio
+          </button>
+        </div>
       </Container>
     </main>
-            
-    
-    );
+  );
 };
 
 export default Error404;
