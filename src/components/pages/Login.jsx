@@ -38,12 +38,12 @@ const Login = ({ setUsuarioLogueado }) => {
   };
 
   return (
-    <Container className="col-4">
+    <Container>
       <Card className="my-5">
-        <Card.Header as="h5" className="TituloLogin display-6 text-center col-4">
+        <Card.Header as="h5" className="TituloLogin display-6 text-center ">
           Login
         </Card.Header>
-        <Card.Body className="TextoLogin d-flex justify-content-center col-4">
+        <Card.Body className="TextoLogin d-flex justify-content-center ">
           <Form onSubmit={handleSubmit(onSubmit)} className="py-3">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
