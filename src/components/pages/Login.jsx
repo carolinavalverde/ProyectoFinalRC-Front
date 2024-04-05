@@ -34,11 +34,13 @@ const Login = ({ setUsuarioLogueado }) => {
   };
 
   return (
-    <Container className="mainSection">
+    <Container>
       <Card className="my-5">
-        <Card.Header as="h5">Login</Card.Header>
-        <Card.Body>
-          <Form onSubmit={handleSubmit(onSubmit)}>
+        <Card.Header as="h5" className="TituloLogin">
+          Login
+        </Card.Header>
+        <Card.Body className="TextoLogin">
+          <Form onSubmit={handleSubmit(onSubmit)} className="py-3">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -76,16 +78,24 @@ const Login = ({ setUsuarioLogueado }) => {
                 {errors.password?.message}
               </Form.Text>
             </Form.Group>
-            <div className="d-flex justify-content-center">
-            <Button className="btn btn-success" type="submit">
-              Ingresar
-            </Button>
+            <section className="d-flex justify-content-star">
+              <span className="fw-bolb">¿Olvidó su contraseña?</span>
+            </section>
+            <div className="d-flex justify-content-center py-3">
+              <Button
+                className="btn btn-success bg-success text-light mx-2"
+                type="submit"
+              >
+                Ingresar
+              </Button>
 
-            <Button className="btn btn-success" type="submit">
-              Registrar
-            </Button>
+              <Button
+                className="btn btn-success bg-success text-light mx-2"
+                type="submit"
+              >
+                Registrar
+              </Button>
             </div>
-           
           </Form>
         </Card.Body>
       </Card>
