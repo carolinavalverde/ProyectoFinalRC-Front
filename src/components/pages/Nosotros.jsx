@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import "../../styles/Nosotros.css";
 
-const AcercaDeNosotros = () => {
+const Nosotros = () => {
   return (
     <Container>
       <main class="mainFondo">
@@ -122,4 +122,4 @@ const AcercaDeNosotros = () => {
   );
 };
 
-export default AcercaDeNosotros;
+export default Nosotros;
