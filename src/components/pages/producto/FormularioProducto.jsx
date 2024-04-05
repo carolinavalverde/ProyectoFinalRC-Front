@@ -85,7 +85,7 @@ const FormularioProducto = ({ editando, titulo }) => {
   };
 
   return (
-    <section className="container mainSection">
+  <section className="container mainSection">
       <h1 className="display-4 mt-5">{titulo}</h1>
       <hr />
       <Form className="my-4" onSubmit={handleSubmit(datosValidados)}>
@@ -150,7 +150,8 @@ const FormularioProducto = ({ editando, titulo }) => {
           <Form.Text className="text-danger">
             {errors.imagen?.message}
           </Form.Text>
-
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formCategoria">
           <Form.Label>Categoría*</Form.Label>
           <Form.Select
             {...register("categoria", {
@@ -158,10 +159,10 @@ const FormularioProducto = ({ editando, titulo }) => {
             })}
           >
             <option value="">Seleccione una opcion</option>
-            <option value="Infusiones">Infusiones</option>
-            <option value="Batidos">Batidos</option>
-            <option value="Dulce">Dulce</option>
-            <option value="Salado">Salado</option>
+            <option value="Entradas">Entradas</option>
+            <option value="Platillos">Platillos</option>
+            <option value="Bebidas">Bebidas</option>
+            <option value="Postres">Postres</option>
           </Form.Select>
           <Form.Text className="text-danger">
             {errors.categoria?.message}
@@ -211,6 +212,7 @@ const FormularioProducto = ({ editando, titulo }) => {
             {errors.descripcion_amplia?.message}
           </Form.Text>
         </Form.Group>
+
       </Form>
     </section>
   );
