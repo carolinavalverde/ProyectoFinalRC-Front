@@ -30,20 +30,10 @@ export const crearProducto = async (productoNuevo) => {
 
 
 export const borrarProducto = async (id) => {
-    try {
-        const respuesta = await fetch(APIProductos + "/" + id, {
-            method: "DELETE",
-        });
-        console.log(respuesta);
-        return respuesta;
-    } catch (error) {
-        console.log(error);
-    }
-};
-
-export const obtenerProducto = async (id) => {
   try {
-    const respuesta = await fetch(APIProductos + "/"+ id);
+    const respuesta = await fetch(APIProductos + "/" + id, {
+      method: "DELETE",
+    });
     console.log(respuesta);
     return respuesta;
   } catch (error) {
@@ -51,3 +41,29 @@ export const obtenerProducto = async (id) => {
   }
 };
 
+export const obtenerProducto = async (id) => {
+  try {
+    const respuesta = await fetch(APIProductos + "/" + id);
+    console.log(respuesta);
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editarProducto = async (productoEditado, id) => {
+  try {
+      const respuesta = await fetch(api + '/' + id, {
+          method: 'PUT',
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify(productoEditado)
+
+          
+      });
+      return respuesta;
+  } catch (error) {
+      console.log(error)
+  }
+}
