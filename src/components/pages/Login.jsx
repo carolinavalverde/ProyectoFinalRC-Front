@@ -15,15 +15,12 @@ const Login = ({ setUsuarioLogueado }) => {
 
   const onSubmit = (usuario) => {
     if (login(usuario)) {
-      //soy el admin
       Swal.fire({
         title: "Bienvenido",
         text: "Ingresaste al panel de administración de RollingCoffee",
         icon: "success",
       });
-      //guardar el usuario en el state
       setUsuarioLogueado(usuario.email);
-      //redireccionar al admin
       navegacion("/administrador");
     } else {
       Swal.fire({
