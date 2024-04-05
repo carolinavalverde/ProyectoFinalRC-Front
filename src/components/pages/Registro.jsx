@@ -17,18 +17,18 @@ const Registro = ({ setUsuarioLogueado }) => {
     try {
       const respuesta = await registrarUsuario(usuario);
       if (respuesta.status === 201) {
-        // Registro exitoso
+       
         Swal.fire({
           title: "Registro exitoso",
           text: "Usuario registrado correctamente",
           icon: "success",
         });
-        // Guardar el usuario en el state
+      
         setUsuarioLogueado(usuario.email);
-        // Redireccionar a la página de inicio de sesión
+      
         navegacion("/login");
       } else {
-        // Error en el registro
+     
         Swal.fire({
           title: "Ocurrió un error",
           text: "No se pudo registrar el usuario. Inténtelo nuevamente",
@@ -37,7 +37,7 @@ const Registro = ({ setUsuarioLogueado }) => {
       }
     } catch (error) {
       console.error("Error al registrar el usuario:", error);
-      // Mostrar mensaje de error
+
       Swal.fire({
         title: "Ocurrió un error",
         text: "Hubo un problema al intentar registrar el usuario. Por favor, inténtelo nuevamente más tarde",
