@@ -33,13 +33,17 @@ const Login = ({ setUsuarioLogueado }) => {
     }
   };
 
+  const irARegistro = () => {
+    window.location.href = "/registro";
+  };
+
   return (
-    <Container>
+    <Container className="col-4">
       <Card className="my-5">
-        <Card.Header as="h5" className="TituloLogin">
+        <Card.Header as="h5" className="TituloLogin display-6 text-center col-4">
           Login
         </Card.Header>
-        <Card.Body className="TextoLogin">
+        <Card.Body className="TextoLogin d-flex justify-content-center col-4">
           <Form onSubmit={handleSubmit(onSubmit)} className="py-3">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
@@ -79,7 +83,7 @@ const Login = ({ setUsuarioLogueado }) => {
               </Form.Text>
             </Form.Group>
             <section className="d-flex justify-content-star">
-              <span className="fw-bolb">¿Olvidó su contraseña?</span>
+              <span className="fw-bolb" onClick={irARegistro}>¿Olvidó su contraseña?</span>
             </section>
             <div className="d-flex justify-content-center py-3">
               <Button
