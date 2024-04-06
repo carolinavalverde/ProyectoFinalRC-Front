@@ -9,5 +9,14 @@
 .TextoRegistro {
   font-family: "Josefin Sans", sans-serif;
   color: #9e2a2e;
-  font-size: 1.2em;
+  font-size: 1.2em;
+}
+
+.ImgSection {
+  flex-grow: 1;
+}
+
+.ImgRegistro {
+  object-fit: cover;
+  width: 100%;
 }
