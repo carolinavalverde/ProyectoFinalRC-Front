@@ -104,9 +104,16 @@ const Login = ({ setUsuarioLogueado }) => {
           </Form>
         </Card.Body>
       </section>
+
+      <section className="ImgSection">
+        <img
+          className="ImgLogin img-fluid h-100 ms-2 me-0"
+          src="https://images.pexels.com/photos/9394523/pexels-photo-9394523.jpeg"
+          alt="fondo restaurant"
+        />
+      </section>
     </Container>
   );
 };
 
 export default Login;
-

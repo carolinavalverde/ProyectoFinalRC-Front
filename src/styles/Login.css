@@ -11,3 +11,12 @@
   color: #9e2a2e;
   font-size: 1.2em;
 }
+
+.ImgSection {
+  flex-grow: 1;
+}
+
+.ImgLogin {
+  object-fit: cover;
+  width: 100%;
+}
