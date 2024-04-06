@@ -44,6 +44,7 @@ function App() {
           path="/login"
           element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}
         ></Route> */}
+        <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/registro" element={<Registro></Registro>}></Route>
         <Route
           exact

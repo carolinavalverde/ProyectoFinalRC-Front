@@ -2,7 +2,6 @@ const APIProductos = import.meta.env.VITE_API_PRODUCTO;
 // const APIProductos = process.env.VITE_API_PRODUCTO;
 console.log(APIProductos);
 
-//GET
 export const leerProductos = async () => {
   try {
     const respuesta = await fetch(APIProductos);
@@ -12,7 +11,6 @@ export const leerProductos = async () => {
   }
 };
 
-//POST
 export const crearProducto = async (productoNuevo) => {
   try {
     const respuesta = await fetch(APIProductos, {
@@ -29,7 +27,6 @@ export const crearProducto = async (productoNuevo) => {
   }
 };
 
-//PUT o PATCH
 export const editarProducto = async (productoEditado, id) => {
   try {
     const respuesta = await fetch(APIProductos + "/" + id, {
@@ -45,7 +42,6 @@ export const editarProducto = async (productoEditado, id) => {
   }
 };
 
-//DELETE
 export const borrarProducto = async (id) => {
   try {
     const respuesta = await fetch(APIProductos + "/" + id, {
@@ -58,7 +54,6 @@ export const borrarProducto = async (id) => {
   }
 };
 
-//GET de un unico producto
 export const obtenerProducto = async (id) => {
   try {
     const respuesta = await fetch(APIProductos + "/"+ id);
@@ -68,76 +63,3 @@ export const obtenerProducto = async (id) => {
     console.log(error);
   }
 };
-
-//cuando tengamos el backend con un login enviar solicitud POST
-const userAdmin = {
-  email: "admin@rollingcoffee.com",
-  password: "123Aa$123",
-};
-
-export const login = (usuario) => {
-  if (
-    usuario.email === userAdmin.email &&
-    usuario.password === userAdmin.password
-  ) {
-    sessionStorage.setItem("loginRollingCoffee", JSON.stringify(usuario.email));
-    return true;
-  } else {
-    return false;
-  }
-};
-
-export const registrarUsuario = async (usuario) => {
-  try {
-    const respuesta = await fetch(APIRegistro, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(usuario),
-    });
-    return respuesta;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-
-export const borrarProducto = async (id) => {
-  try {
-    const respuesta = await fetch(APIProductos + "/" + id, {
-      method: "DELETE",
-    });
-    console.log(respuesta);
-    return respuesta;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const obtenerProducto = async (id) => {
-  try {
-    const respuesta = await fetch(APIProductos + "/" + id);
-    console.log(respuesta);
-    return respuesta;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const editarProducto = async (productoEditado, id) => {
-  try {
-      const respuesta = await fetch(api + '/' + id, {
-          method: 'PUT',
-          headers: {
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify(productoEditado)
-
-          
-      });
-      return respuesta;
-  } catch (error) {
-      console.log(error)
-  }
-}
