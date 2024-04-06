@@ -17,18 +17,16 @@ const Registro = ({ setUsuarioLogueado }) => {
     try {
       const respuesta = await registrarUsuario(usuario);
       if (respuesta.status === 201) {
-       
         Swal.fire({
           title: "Registro exitoso",
           text: "Usuario registrado correctamente",
           icon: "success",
         });
-      
+
         setUsuarioLogueado(usuario.email);
-      
+
         navegacion("/login");
       } else {
-     
         Swal.fire({
           title: "Ocurrió un error",
           text: "No se pudo registrar el usuario. Inténtelo nuevamente",
@@ -153,6 +151,14 @@ const Registro = ({ setUsuarioLogueado }) => {
             </section>
           </Form>
         </Card.Body>
+      </section>
+
+      <section className="ImgSection">
+        <img
+          className="ImgRegistro img-fluid h-100 ms-2 me-0"
+          src="https://images.pexels.com/photos/2114062/pexels-photo-2114062.jpeg"
+          alt="fondo restaurant"
+        />
       </section>
     </Container>
   );
