@@ -25,20 +25,33 @@ export const crearProducto = async (productoNuevo) => {
   } catch (error) {
     console.log(error);
   }
-
 };
 
+export const editarProducto = async (productoEditado, id) => {
+  try {
+    const respuesta = await fetch(APIProductos + "/" + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(productoEditado),
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const borrarProducto = async (id) => {
-    try {
-        const respuesta = await fetch(APIProductos + "/" + id, {
-            method: "DELETE",
-        });
-        console.log(respuesta);
-        return respuesta;
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    const respuesta = await fetch(APIProductos + "/" + id, {
+      method: "DELETE",
+    });
+    console.log(respuesta);
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const obtenerProducto = async (id) => {

@@ -15,3 +15,9 @@ h1 {
   font-family: "Cormorant Garamond", serif;
   color: #540b0e;
 }
+.mainSection {
+  flex-grow: 1;
+}
+.main-error {
+  background-color: #acf3e3;
+}

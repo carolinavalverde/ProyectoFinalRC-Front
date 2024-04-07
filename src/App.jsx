@@ -6,7 +6,7 @@ import Error404 from "./components/pages/Error404";
 import Administrador from "./components/pages/Administrador";
 import Inicio from "./components/pages/Inicio";
 import FormularioProducto from "./components/pages/producto/FormularioProducto";
-import DetalleProducto from "../src/components/pages/Detalleproducto";
+import DetalleProducto from "./components/pages/Detalleproducto";
 import CarritoPedidos from "./components/pages/CarritoPedidos";
 import Nosotros from "./components/pages/Nosotros";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -19,34 +19,32 @@ import PaginaMenuCategorias from "./components/pages/Menu/PaginaMenuCategorias";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
 
 function App() {
-
   return (
-
     <BrowserRouter>
-      <PaginaMenuCategorias></PaginaMenuCategorias>
+      <Menu></Menu>
       {/* <Menu
         usuarioLogueado={usuarioLogueado}
         setUsuarioLogueado={setUsuarioLogueado}
-      ></Menu>
+      ></Menu> */}
+      {/* <PaginaMenuCategorias></PaginaMenuCategorias> */}
       <Routes>
         <Route path="/" element={<Inicio></Inicio>}></Route>
+
         <Route
           path="/carritopedidos"
           element={<CarritoPedidos></CarritoPedidos>}
         ></Route>
-        <Route
-          path="/nosotros"
-          element={<CarritoPedidos></CarritoPedidos>}
-        ></Route>
+        <Route path="/nosotros" element={<Nosotros></Nosotros>}></Route>
         <Route
           path="/detalleproducto/:id"
           element={<DetalleProducto></DetalleProducto>}
         ></Route>
-        <Route
+        {/* <Route
           exact
           path="/login"
           element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}
-        ></Route>
+        ></Route> */}
+        <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/registro" element={<Registro></Registro>}></Route>
         <Route
           exact
@@ -62,14 +60,6 @@ function App() {
       <Footer></Footer>
     </BrowserRouter>
   );
-
 }
 
 export default App;
-
-
-
-
-
-
-

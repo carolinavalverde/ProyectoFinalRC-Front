@@ -16,7 +16,7 @@ const Footer = () => {
           <section className="col-md-4 col-lg-4 TextoFooter text-center">
             <div>
               <h6>CONTACTANOS</h6>
-              <p>Jueves a Domingos de 20pm a 02am</p>
+              <p className="TextoFooter">Jueves a Domingos de 20pm a 02am</p>
               <ul className="list-group-item">
                 <li className="list-group-item mb-2">
                   <i className="bi bi-telephone-fill"></i> 381-21764295
