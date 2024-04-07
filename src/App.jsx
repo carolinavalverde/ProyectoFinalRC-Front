@@ -24,7 +24,7 @@ function App() {
 
     <BrowserRouter>
       <PaginaMenuCategorias></PaginaMenuCategorias>
-      <Menu
+      {/* <Menu
         usuarioLogueado={usuarioLogueado}
         setUsuarioLogueado={setUsuarioLogueado}
       ></Menu>
@@ -58,7 +58,7 @@ function App() {
           }
         ></Route>
         <Route path="*" element={<Error404></Error404>}></Route>
-      </Routes>
+      </Routes> */}
       <Footer></Footer>
     </BrowserRouter>
   );
