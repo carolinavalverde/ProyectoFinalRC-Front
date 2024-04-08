@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Table, Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const CarritoPedidos = () => {
   const [productosEnCarrito, setProductosEnCarrito] = useState([]);
+  const navegacion = useNavigate();
 
   useEffect(() => {
     const productosGuardados =
@@ -15,6 +17,10 @@ const CarritoPedidos = () => {
       (total, producto) => total + producto.precio,
       0
     );
+  };
+
+  const handleFinalizarCompra = () => {
+    navegacion('/metodosdepago');
   };
 
   return (
@@ -56,11 +62,9 @@ const CarritoPedidos = () => {
             </p>
           </div>
           <div className="d-flex justify-content-end">
-            <button
+          <button
               className="btn btn-primary my-2"
-              onClick={() =>
-                console.log("Implementa la lógica para finalizar la compra")
-              }
+              onClick={handleFinalizarCompra}
             >
               Finalizar Compra
             </button>
