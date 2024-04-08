@@ -64,36 +64,3 @@ export const obtenerProducto = async (id) => {
   }
 };
 
-//
-const userAdmin = {
-  email: "admin@rollingcoffee.com",
-  password: "123Aa$123",
-};
-
-export const login = (usuario) => {
-  if (
-    usuario.email === userAdmin.email &&
-    usuario.password === userAdmin.password
-  ) {
-    sessionStorage.setItem("loginRollingCoffee", JSON.stringify(usuario.email));
-    return true;
-  } else {
-    return false;
-  }
-};
-
-export const registrarUsuario = async (usuario) => {
-  try {
-    const respuesta = await fetch(APIRegistro, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(usuario),
-    });
-    return respuesta;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
