@@ -63,3 +63,4 @@ export const obtenerProducto = async (id) => {
     console.log(error);
   }
 };
+

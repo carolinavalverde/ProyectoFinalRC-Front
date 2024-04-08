@@ -118,4 +118,3 @@ const Login = ({ setUsuarioLogueado }) => {
 
 export default Login;
 
-export default Login;
