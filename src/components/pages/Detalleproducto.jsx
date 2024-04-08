@@ -25,7 +25,7 @@ const Detalleproducto = () => {
       JSON.parse(localStorage.getItem("carrito")) || [];
     productosEnCarrito.push(producto);
     localStorage.setItem("carrito", JSON.stringify(productosEnCarrito));
-    alert("Producto agregado al carrito");
+    alert("El producto fue agregado al carrito");
     navigate("/carritopedidos"); 
   };
 
