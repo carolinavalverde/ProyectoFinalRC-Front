@@ -6,7 +6,7 @@ import Error404 from "./components/pages/Error404";
 import Administrador from "./components/pages/Administrador";
 import Inicio from "./components/pages/Inicio";
 import FormularioProducto from "./components/pages/producto/FormularioProducto";
-import DetalleProducto from "./components/pages/Detalleproducto";
+import DetalleProducto from "./components/pages/DetalleProducto";
 import CarritoPedidos from "./components/pages/CarritoPedidos";
 import Nosotros from "./components/pages/Nosotros";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -17,6 +17,7 @@ import RutasAdmin from "./components/routes/RutasAdmin";
 import { useState } from "react";
 import PaginaMenuCategorias from "./components/pages/Menu/PaginaMenuCategorias";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
+import CardProducto from "./components/pages/Menu/CardProducto";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           path="/carritopedidos"
           element={<CarritoPedidos></CarritoPedidos>}
         ></Route>
+        <Route path="/cardproducto" element={<CardProducto></CardProducto>}></Route>
         <Route path="/nosotros" element={<Nosotros></Nosotros>}></Route>
         <Route
           path="/detalleproducto/:id"
@@ -56,7 +58,7 @@ function App() {
           }
         ></Route>
         <Route path="*" element={<Error404></Error404>}></Route>
-      </Routes> */}
+      </Routes>
       <Footer></Footer>
     </BrowserRouter>
   );
