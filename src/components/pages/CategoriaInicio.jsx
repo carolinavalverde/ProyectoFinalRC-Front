@@ -37,7 +37,6 @@ const CategoriaInicio = (props) => {
         backgroundRepeat: 'no-repeat'
     };
 
-    // Función para manejar el clic en el botón "Ver más" y redirigir a la página de la categoría por ID
     const handleVerMasClick = (categoryId) => {
         navigate(`/categorias/${categoryId}`);
     };
@@ -45,8 +44,6 @@ const CategoriaInicio = (props) => {
     return (
         <div className="categoria" style={backgroundStyles}>
             <h2>{title}</h2>
-            {/* Llama a la función handleVerMasClick con la categoryId cuando se hace clic en el botón */}
-            <button className="btn" onClick={() => handleVerMasClick(categoryId)}> Ver más </button>
         </div>
     );
 };
