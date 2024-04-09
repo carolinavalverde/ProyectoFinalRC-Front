@@ -17,6 +17,8 @@ import RutasAdmin from "./components/routes/RutasAdmin";
 import { useState } from "react";
 import PaginaMenuCategorias from "./components/pages/Menu/PaginaMenuCategorias";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
+import CardProducto from "./components/pages/Menu/CardProducto";
+import MetodosDePago from "./components/pages/MetodosDePago";
 
 function App() {
   return (
@@ -34,6 +36,7 @@ function App() {
           path="/carritopedidos"
           element={<CarritoPedidos></CarritoPedidos>}
         ></Route>
+        <Route path="/metodosdepago" element={<MetodosDePago></MetodosDePago>}></Route>
         <Route path="/nosotros" element={<Nosotros></Nosotros>}></Route>
         <Route
           path="/detalleproducto/:id"
