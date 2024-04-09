@@ -15,7 +15,7 @@ import Login from "./components/pages/Login";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import RutasAdmin from "./components/routes/RutasAdmin";
 import { useState } from "react";
-import PaginaMenuCategorias from "./components/pages/Menu/PaginaMenuCategorias";
+import NuestrosProductos from "./components/pages/Menu/NuestrosProductos";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
 import CardProducto from "./components/pages/Menu/CardProducto";
 import MetodosDePago from "./components/pages/MetodosDePago";
@@ -38,6 +38,7 @@ function App() {
         ></Route>
         <Route path="/metodosdepago" element={<MetodosDePago></MetodosDePago>}></Route>
         <Route path="/nosotros" element={<Nosotros></Nosotros>}></Route>
+        <Route path="/NuestrosProductos" element={<NuestrosProductos></NuestrosProductos>}></Route>
         <Route
           path="/detalleproducto/:id"
           element={<Detalleproducto></Detalleproducto>}
