@@ -6,7 +6,7 @@ import Error404 from "./components/pages/Error404";
 import Administrador from "./components/pages/Administrador";
 import Inicio from "./components/pages/Inicio";
 import FormularioProducto from "./components/pages/producto/FormularioProducto";
-import DetalleProducto from "./components/pages/DetalleProducto";
+import Detalleproducto from "./components/pages/Detalleproducto";
 import CarritoPedidos from "./components/pages/CarritoPedidos";
 import Nosotros from "./components/pages/Nosotros";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -40,7 +40,7 @@ function App() {
         <Route path="/nosotros" element={<Nosotros></Nosotros>}></Route>
         <Route
           path="/detalleproducto/:id"
-          element={<DetalleProducto></DetalleProducto>}
+          element={<Detalleproducto></Detalleproducto>}
         ></Route>
         {/* <Route
           exact
@@ -59,7 +59,7 @@ function App() {
           }
         ></Route>
         <Route path="*" element={<Error404></Error404>}></Route>
-      </Routes>
+      </Routes> 
       <Footer></Footer>
     </BrowserRouter>
   );
