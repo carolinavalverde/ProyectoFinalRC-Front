@@ -25,7 +25,12 @@ const ItemProducto = ({producto, setProductos}) => {
             text: El producto ${producto.nombreProducto} fue eliminado correctamente,
             icon: "success"
           });
-
+          //actualizar la tabla del administrador
+          const respuestaNuevosProductos = await leerProductos();
+          if(respuestaNuevosProductos.status === 200){
+            const nuevosProductos = await respuestaNuevosProductos.json()
+            setProductos(nuevosProductos);
+          }
         }else{
           Swal.fire({
             title: "Ocurrio un error",
@@ -62,4 +67,4 @@ const ItemProducto = ({producto, setProductos}) => {
   );
 };
 
-export default ItemProducto;
+export default ItemProducto;
