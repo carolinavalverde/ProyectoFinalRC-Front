@@ -5,7 +5,37 @@ import { Link } from "react-router-dom";
 
 const ItemProducto = ({producto, setProductos}) => {
 
-  
+  const eliminarProducto = ()=>{
+    Swal.fire({
+      title: "¿Está seguro de eliminar el producto",
+      text: "No se puede revertir esta operación",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Borrar",
+      cancelButtonText: "Cancelar",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        //solicitar a la api eliminar el producto
+        const respuesta = await borrarProducto(producto._id);
+        if(respuesta.status === 200){
+          Swal.fire({
+            title: "Producto eliminado",
+            text: El producto ${producto.nombreProducto} fue eliminado correctamente,
+            icon: "success"
+          });
+
+        }else{
+          Swal.fire({
+            title: "Ocurrio un error",
+            text: El producto ${producto.nombreProducto} no fue eliminado, intente esta operación en unos minutos,
+            icon: "error"
+          });
+        }
+      }
+    });
+  }
 
   return (
     <tr>
@@ -32,4 +62,4 @@ const ItemProducto = ({producto, setProductos}) => {
   );
 };
 
-export default ItemProducto;
+export default ItemProducto;
