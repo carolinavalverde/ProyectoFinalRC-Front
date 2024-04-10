@@ -6,15 +6,11 @@ import CategoriaInicio from "./CategoriaInicio";
 const Inicio = () => {
   return (
     <section>
-      <div>
-        <div>
+      <div className="contenedorRestaurantVermont">
           <div>Restaurant Vermont</div>
-          <div className="d-flex justify-content-center">
-            <Link className="btn btn-success mb-4" to="/nuestrosproductos">
+            <Link className="btn" to="/nuestrosproductos" style={{ fontSize: "2rem", color: "#fff380" }}>
               Nuestros Productos
             </Link>{" "}
-          </div>
-        </div>
       </div>
       <div>
         <CategoriaInicio
