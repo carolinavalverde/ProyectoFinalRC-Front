@@ -3,9 +3,8 @@ import Swal from "sweetalert2";
 import { borrarProducto, leerProductos } from "../../../helpers/queries";
 import { Link } from "react-router-dom";
 
-const ItemProducto = ({producto, setProductos}) => {
-
-  const eliminarProducto = ()=>{
+const ItemProducto = ({ producto, setProductos }) => {
+  const eliminarProducto = () => {
     Swal.fire({
       title: "¿Está seguro de eliminar el producto",
       text: "No se puede revertir esta operación",
@@ -17,34 +16,33 @@ const ItemProducto = ({producto, setProductos}) => {
       cancelButtonText: "Cancelar",
     }).then(async (result) => {
       if (result.isConfirmed) {
-
-        const respuesta = await borrarProducto(producto._id);
-        if(respuesta.status === 200){
+        const respuesta = await borrarProducto(producto.id);
+        if (respuesta.status === 200) {
           Swal.fire({
             title: "Producto eliminado",
-            text: El producto ${producto.nombreProducto} fue eliminado correctamente,
-            icon: "success"
+            text: `El producto ${producto.nombreProducto} fue eliminado correctamente`,
+            icon: "success",
           });
-   
+
           const respuestaNuevosProductos = await leerProductos();
-          if(respuestaNuevosProductos.status === 200){
-            const nuevosProductos = await respuestaNuevosProductos.json()
+          if (respuestaNuevosProductos.status === 200) {
+            const nuevosProductos = await respuestaNuevosProductos.json();
             setProductos(nuevosProductos);
           }
-        }else{
+        } else {
           Swal.fire({
             title: "Ocurrio un error",
-            text: El producto ${producto.nombreProducto} no fue eliminado, intente esta operación en unos minutos,
-            icon: "error"
+            text: `El producto ${producto.nombreProducto} no fue eliminado, intente esta operación en unos minutos`,
+            icon: "error",
           });
         }
       }
     });
-  }
+  };
 
   return (
     <tr>
-      <td className="text-center">{producto._id}</td>
+      <td className="text-center">{producto.id}</td>
       <td>{producto.nombreProducto}</td>
       <td className="text-end">${producto.precio}</td>
       <td className="text-center">
@@ -56,7 +54,10 @@ const ItemProducto = ({producto, setProductos}) => {
       </td>
       <td>{producto.categoria}</td>
       <td className="text-center">
-        <Link className="me-lg-2 btn btn-warning" to={'/administrador/editar/'+ producto._id}>
+        <Link
+          className="me-lg-2 btn btn-warning"
+          to={"/administrador/editar/" + producto.id}
+        >
           <i className="bi bi-pencil-square"></i>
         </Link>
         <Button variant="danger" onClick={eliminarProducto}>
@@ -67,4 +68,4 @@ const ItemProducto = ({producto, setProductos}) => {
   );
 };
 
-export default ItemProducto;
+export default ItemProducto;
