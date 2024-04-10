@@ -17,7 +17,7 @@ const ItemProducto = ({producto, setProductos}) => {
       cancelButtonText: "Cancelar",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        //solicitar a la api eliminar el producto
+
         const respuesta = await borrarProducto(producto._id);
         if(respuesta.status === 200){
           Swal.fire({
@@ -25,7 +25,7 @@ const ItemProducto = ({producto, setProductos}) => {
             text: El producto ${producto.nombreProducto} fue eliminado correctamente,
             icon: "success"
           });
-          //actualizar la tabla del administrador
+   
           const respuestaNuevosProductos = await leerProductos();
           if(respuestaNuevosProductos.status === 200){
             const nuevosProductos = await respuestaNuevosProductos.json()
