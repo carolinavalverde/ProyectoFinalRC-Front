@@ -1,87 +1,21 @@
-.card {
-    position: relative;
-    width: 11.875em;
-    height: 16.5em;
-    box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: all 120ms;
-    display: flex;
-    justify-content: center;
-    background: #fff;
-    padding: 0.5em;
-    padding-bottom: 3.4em;
-    
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
+
+.TituloCardProducto {
+    font-family: "Cormorant Garamond", serif;
+    color: #540b0e;
 }
 
-.card::after {
-    content: "Add to Cart";
-    padding-top: 1.25em;
-    /* padding-left: 1.25; */
-    position: absolute;
-    left: 0;
-    bottom: -60px;
-    background: #00AC7C;
-    color: #fff;
-    height: 4em;
-    width: 100%;
-    text-align: center;
-    transition: all 80ms;
-    font-weight: 600;
-    text-transform: uppercase;
-    opacity: 0;
+.TextoCardTexto {
+    font-family: "Josefin Sans", sans-serif;
+    color: #9e2a2e;
 }
 
-.card .title {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.9em;
-    position: absolute;
-    left: 0.625em;
-    bottom: 1.875em;
-    font-weight: 400;
-    color: #000;
-    
+.imagenCardProducto {
+    width: max-content !important;
+    height: 300px !important;
 }
 
-.card .price {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 0.9em;
-    position: absolute;
-    left: 0.625em;
-    bottom: 0.625em;
-    color: #000;
-}
-
-.card:hover::after {
-    bottom: 0;
-    opacity: 1;
-}
-
-.card:active {
-    transform: scale(0.98);
-}
-
-.card:active::after {
-    content: "Added !";
-    height: 3.125em;
-}
-
-.text {
-    max-width: 55px;
-}
-
-.image {
-    background: rgb(241, 241, 241);
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-items: center;
-}
-
-.cardContainer{
-    display: flex;
-    flex-direction: column;
-}
-
-.cardContainer h1{
-    width: 100%;
+.cardProductoAltura {
+    height: 300px;
 }

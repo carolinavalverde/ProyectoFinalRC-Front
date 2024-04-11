@@ -2,7 +2,7 @@
   "productos": [
     {
       "nombreProducto": "Salmon Marinado",
-      "precio": "100000",
+      "precio": "1000",
       "imagen": "https://images.pexels.com/photos/842142/pexels-photo-842142.jpeg",
       "categoria": "Platillos",
       "descripcion_breve": "Salmon con todo el sabor del mar.",
@@ -12,7 +12,7 @@
     {
       "id": "2",
       "nombreProducto": "Jugo de Naranja Natural",
-      "precio": 13000,
+      "precio": 1300,
       "imagen": "https://images.pexels.com/photos/338713/pexels-photo-338713.jpeg",
       "categoria": "Bebidas",
       "descripcion_breve": "Un jugo refrescante y lleno de vitaminas.",
@@ -21,7 +21,7 @@
     {
       "id": "3",
       "nombreProducto": "Brownie de Chocolate",
-      "precio": "40000",
+      "precio": "400",
       "imagen": "https://images.pexels.com/photos/2373520/pexels-photo-2373520.jpeg",
       "categoria": "Postres",
       "descripcion_breve": "Masa de chocolate dulce dulce",

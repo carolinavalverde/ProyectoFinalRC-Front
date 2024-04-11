@@ -69,3 +69,4 @@ const ItemProducto = ({ producto, setProductos }) => {
 };
 
 export default ItemProducto;
+
