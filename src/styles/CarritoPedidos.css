@@ -8,28 +8,10 @@
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
-  position: relative;
-}
-.mainSection {
-  flex-grow: 1;
-}
-
-body {
-  margin: 0%;
-  padding: 0%;
-  background-color: #fff380;
-}
-
-.itemsContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background-color: #fff3b0;
 }
 
-.itemsContainer hr {
-  height: 0.2vh;
-  background-color: rgb(0, 0, 0);
-  width: 90vw;
+h2 {
+  font-family: "Cormorant Garamond", serif;
+  color: #540b0e;
 }

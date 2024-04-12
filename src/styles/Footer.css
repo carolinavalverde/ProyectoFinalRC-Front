@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap');
+
+.TituloFooter {
+  font-family: 'Cormorant Garamond', serif;
+  color: #e09f3e;
+}
+
+.TituloFooter:hover {
+  color: #9e2a2e;
+}
+
+.TextoFooter {
+  font-family: "Josefin Sans", sans-serif;
+  color: #e09f3e;
+  font-size: 1em;
+}
+
+.TextoFooter:hover {
+  color: #9e2a2e;
+}
+
+.BgFooter {
+  background-color: #540b0e;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+}
