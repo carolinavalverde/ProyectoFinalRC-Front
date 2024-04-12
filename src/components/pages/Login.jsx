@@ -13,19 +13,28 @@ const Login = ({ setUsuarioLogueado }) => {
   } = useForm();
   const navegacion = useNavigate();
 
-  const onSubmit = (usuario) => {
-    if (login(usuario)) {
+  const onSubmit = async (usuario) => {
+
+    const respuesta = await login(usuario); 
+    if (respuesta.status === 200) {
+      //soy el admin
       Swal.fire({
         title: "Bienvenido",
-        text: "Ingresaste al panel de administración de RollingCoffee",
+        text: `Ingresaste al panel de administración de VermontRestaurant`,
         icon: "success",
       });
-      setUsuarioLogueado(usuario.email);
+      const datos = await respuesta.json();
+      sessionStorage.setItem("loginVermontRestaurant",
+      JSON.stringify({ email: datos.email, token: datos.token })
+    );
+      //guardar el usuario en el state
+      setUsuarioLogueado(datos);
+      //redireccionar al admin
       navegacion("/administrador");
     } else {
       Swal.fire({
         title: "Ocurrio un error",
-        text: "Email o password incorrecto",
+        text: `Email o password incorrecto`,
         icon: "error",
       });
     }
@@ -42,66 +51,72 @@ const Login = ({ setUsuarioLogueado }) => {
           Login
         </Card.Header>
         <Card.Body className="TextoLogin d-flex justify-content-center">
-          <Form onSubmit={handleSubmit(onSubmit)} className="py-3 w-100">
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Ingrese un email"
-                {...register("email", {
-                  required: "El nombre de usuario es obligatorio",
-                  pattern: {
-                    value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
-                    message:
-                      "Ingrese una dirección de correo electrónico válida",
-                  },
-                })}
-              />
-              <Form.Text className="text-danger">
-                {errors.email?.message}
-              </Form.Text>
-            </Form.Group>
+          <section className="d-flex row justify-content-center">
+            <Form onSubmit={handleSubmit(onSubmit)} className="py-2 w-100">
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Ingrese un email"
+                  {...register("email", {
+                    required: "El nombre de usuario es obligatorio",
+                    pattern: {
+                      value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
+                      message:
+                        "Ingrese una dirección de correo electrónico válida",
+                    },
+                  })}
+                />
+                <Form.Text className="text-danger">
+                  {errors.email?.message}
+                </Form.Text>
+              </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                {...register("password", {
-                  required: "El nombre de password es obligatorio",
-                  pattern: {
-                    value: /^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}$/,
-                    message:
-                      "El password debe contener al menos una letra mayúscula, una letra minúscula y un número",
-                  },
-                })}
-              />
-              <Form.Text className="text-danger">
-                {errors.password?.message}
-              </Form.Text>
-            </Form.Group>
-            <section className="d-flex justify-content-star">
-              <Link to="/registro" className="fw-bold">
-                ¿Olvidó su contraseña?
-              </Link>
-            </section>
-            <section className="py-3 d-flex row justify-content-center">
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  {...register("password", {
+                    required: "El nombre de password es obligatorio",
+                    pattern: {
+                      value: /^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}$/,
+                      message:
+                        "El password debe contener al menos una letra mayúscula, una letra minúscula y un número",
+                    },
+                  })}
+                />
+                <Form.Text className="text-danger">
+                  {errors.password?.message}
+                </Form.Text>
+              </Form.Group>
+              <section className="d-flex justify-content-star">
+                <Link to="/registro" className="fw-bold">
+                  ¿Olvidó su contraseña?
+                </Link>
+              </section>
+
+              <section className="pt-3 d-flex row justify-content-center">
+                <Button
+                  className="btn btnLogin mx-2 my-2"
+                  style={{ width: "fit-content" }}
+                  type="submit"
+                >
+                  Ingresar
+                </Button>
+              </section>
+            </Form>
+
+            <section className="pb-2 justify-content-center text-center">
               <Button
-                className="btn btn-success bg-success text-light mx-2 my-2"
-                style={{ width: "fit-content" }}
-                type="submit"
-              >
-                Ingresar
-              </Button>
-              <Button
-                className="btn btn-success bg-success text-light mx-2 my-2"
+                className="btn bg-dark bg-opacity-75 mx-2 my-2"
                 style={{ width: "fit-content" }}
                 onClick={irARegistro}
               >
-                Registrar
+                Registrarse
               </Button>
             </section>
-          </Form>
+          </section>
         </Card.Body>
       </section>
 

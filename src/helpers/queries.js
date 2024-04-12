@@ -1,5 +1,5 @@
 const APIProductos = import.meta.env.VITE_API_PRODUCTO;
-// const APIProductos = process.env.VITE_API_PRODUCTO;
+//const APIProductos = process.env.VITE_API_PRODUCTO;
 console.log(APIProductos);
 
 export const leerProductos = async () => {
@@ -17,6 +17,8 @@ export const crearProducto = async (productoNuevo) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "x-token": JSON.parse(sessionStorage.getItem("loginVermontRestaurant"))
+          .token,
       },
       body: JSON.stringify(productoNuevo),
     });
@@ -33,6 +35,8 @@ export const editarProducto = async (productoEditado, id) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        "x-token": JSON.parse(sessionStorage.getItem("loginVermontRestaurant"))
+          .token,
       },
       body: JSON.stringify(productoEditado),
     });
@@ -46,6 +50,10 @@ export const borrarProducto = async (id) => {
   try {
     const respuesta = await fetch(APIProductos + "/" + id, {
       method: "DELETE",
+      headers: {
+        "x-token": JSON.parse(sessionStorage.getItem("loginVermontRestaurant"))
+          .token,
+      },
     });
     console.log(respuesta);
     return respuesta;
@@ -56,7 +64,7 @@ export const borrarProducto = async (id) => {
 
 export const obtenerProducto = async (id) => {
   try {
-    const respuesta = await fetch(APIProductos + "/"+ id);
+    const respuesta = await fetch(APIProductos + "/" + id);
     console.log(respuesta);
     return respuesta;
   } catch (error) {
@@ -64,21 +72,21 @@ export const obtenerProducto = async (id) => {
   }
 };
 
-
-const userAdmin = {
-  email: "admin@rollingcoffee.com",
-  password: "123Aa$123",
-};
-
-export const login = (usuario) => {
-  if (
-    usuario.email === userAdmin.email &&
-    usuario.password === userAdmin.password
-  ) {
-    sessionStorage.setItem("loginRollingCoffee", JSON.stringify(usuario.email));
-    return true;
-  } else {
-    return false;
+export const login = async (usuario) => {
+  try {
+    console.log(usuario);
+    const respuesta = await fetch(URL_Usuario, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuario),
+    });
+    console.log(respuesta);
+    return respuesta;
+  } catch (error) {
+    console.log("errores en el login");
+    return;
   }
 };
 
