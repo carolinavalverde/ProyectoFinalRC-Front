@@ -21,35 +21,41 @@ import CardProducto from "./components/pages/Menu/CardProducto";
 import MetodosDePago from "./components/pages/MetodosDePago";
 
 function App() {
+  const [usuarioLogueado, setUsuarioLogueado] = useState(null);
+
   return (
     <BrowserRouter>
-      <Menu></Menu>
-      {/* <Menu
+      {/*  <Menu></Menu>*/}
+      <Menu
         usuarioLogueado={usuarioLogueado}
         setUsuarioLogueado={setUsuarioLogueado}
-      ></Menu> */}
-      {/* <PaginaMenuCategorias></PaginaMenuCategorias> */}
+      ></Menu>
       <Routes>
         <Route path="/" element={<Inicio></Inicio>}></Route>
-
         <Route
           path="/carritopedidos"
           element={<CarritoPedidos></CarritoPedidos>}
         ></Route>
-        <Route path="/metodosdepago" element={<MetodosDePago></MetodosDePago>}></Route>
+        <Route
+          path="/metodosdepago"
+          element={<MetodosDePago></MetodosDePago>}
+        ></Route>
         <Route path="/nosotros" element={<Nosotros></Nosotros>}></Route>
-        <Route path="/NuestrosProductos" element={<NuestrosProductos></NuestrosProductos>}></Route>
+        <Route
+          path="/NuestrosProductos"
+          element={<NuestrosProductos></NuestrosProductos>}
+        ></Route>
         <Route
           path="/detalleproducto/:id"
           element={<Detalleproducto></Detalleproducto>}
         ></Route>
-        {/* <Route
+        <Route
           exact
           path="/login"
           element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}
-        ></Route> */}
-        <Route path="/login" element={<Login></Login>}></Route>
+        ></Route>
         <Route path="/registro" element={<Registro></Registro>}></Route>
+        {/* <Route path="/administrador" element={<Administrador></Administrador>}></Route> */}
         <Route
           exact
           path="/administrador/*"
@@ -60,7 +66,7 @@ function App() {
           }
         ></Route>
         <Route path="*" element={<Error404></Error404>}></Route>
-      </Routes> 
+      </Routes>
       <Footer></Footer>
     </BrowserRouter>
   );
