@@ -10,6 +10,8 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
     navegacion("/");
   };
 
+  const isAdmin = usuarioLogueado && usuarioLogueado.email === "admin@vermontrestaurant.com"; 
+
   return (
     <Navbar expand="lg" className="BgNav">
       <Container>
@@ -34,7 +36,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
             <NavLink end className="nav-link" to="/registro">
               <div className="TextoNav">Registro</div>
             </NavLink>
-            {usuarioLogueado !== "" ? (
+            {isAdmin && ( 
               <>
                 <NavLink end className="nav-link" to="/administrador">
                   <div className="TextoNav">Administrador</div>
@@ -43,12 +45,13 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
                   logout
                 </Button>
               </>
-            ) : (
+            )}
+            {!usuarioLogueado && ( 
               <NavLink end className="nav-link" to="/login">
                 <div className="TextoNav">Login</div>
               </NavLink>
             )}
-             <NavLink end className="nav-link" to="/carritopedidos">
+            <NavLink end className="nav-link" to="/carritopedidos">
               <div className="TextoNav"><i className="bi bi-cart"></i></div>
             </NavLink>
           </Nav>
