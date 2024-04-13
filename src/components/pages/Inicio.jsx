@@ -2,10 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Inicio.css";
 import CategoriaInicio from "./CategoriaInicio";
-import entradasImage from "../assets/img/entradas1.avif";
-import platillosImage from "../assets/img/platillos1.avif";
-import bebidasImage from "../assets/img/bebidas1.jpg";
-import postresImage from "../assets/img/postres1.avif";
 
 const Inicio = () => {
     return (
@@ -17,24 +13,24 @@ const Inicio = () => {
                     to="/nuestrosproductos"
                 >
                     Nuestros Productos
-                </Link>
+                </Link>{" "}
             </div>
             <div>
                 <CategoriaInicio
                     title="Entradas"
-                    backgroundImage={entradasImage}
+                    backgroundImage="../src/components/assets/img/entradas1.avif"
                 />
                 <CategoriaInicio
                     title="Platillos"
-                    backgroundImage={platillosImage}
+                    backgroundImage="../src/components/assets/img/platillos1.avif"
                 />
                 <CategoriaInicio
                     title="Bebidas"
-                    backgroundImage={bebidasImage}
+                    backgroundImage="../src/components/assets/img/bebidas1.jpg"
                 />
                 <CategoriaInicio
                     title="Postres"
-                    backgroundImage={postresImage}
+                    backgroundImage="../src/components/assets/img/postres1.avif"
                 />
             </div>
         </section>
