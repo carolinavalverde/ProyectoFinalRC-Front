@@ -19,12 +19,10 @@
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
-    font-size: 5rem;
     color: #e4e3dc;
     font-family: "Josefin Sans", sans-serif;
 
 }
-
 
 .btnNuestrosProductos {
     position: relative;
@@ -71,7 +69,30 @@
     background-color: #fff;
 }
 
-.btnNuestrosProductosn:hover::after {
+.btnNuestrosProductos:hover::after {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
+}
+
+.textoImgCategoria{
+    color: #e4e3dc;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.imgCategoriaEntradas{
+    width: 100%;
+    height: 50vw;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../components/assets/img/entradas1.avif);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 5rem;
+    color: #e4e3dc;
+    font-family: "Josefin Sans", sans-serif!important;
+
 }
