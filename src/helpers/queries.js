@@ -1,7 +1,6 @@
-//const APIProductos = import.meta.env.VITE_API_PRODUCTO;
-//const APIUsuarios = import.meta.env.VITE_API_USUARIO;
-const APIProductos = process.env.VITE_API_PRODUCTO;
-const APIUsuarios = process.env.VITE_API_USUARIO;
+const APIProductos = import.meta.env.VITE_API_PRODUCTO;
+//const APIProductos = process.env.VITE_API_PRODUCTO;
+//const APIUsuarios = process.env.VITE_API_USUARIO;
 console.log(APIProductos);
 
 export const leerProductos = async () => {
@@ -73,24 +72,6 @@ export const obtenerProducto = async (id) => {
     console.log(error);
   }
 };
-
-// para admin
-// const userAdmin = {
-//   email: "admin@vermontrestaurant.com",
-//   password: "Vermont123$",
-// };
-
-// export const login = (usuario) => {
-//   if (
-//     usuario.email === userAdmin.email &&
-//     usuario.password === userAdmin.password
-//   ) {
-//     sessionStorage.setItem("loginVermontRestaurant", JSON.stringify(usuario.email));
-//     return true;
-//   } else {
-//     return false;
-//   }
-// };
 
 export const login = async (usuario) => {
   try {
