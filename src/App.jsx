@@ -21,14 +21,17 @@ import CardProducto from "./components/pages/Menu/CardProducto";
 import MetodosDePago from "./components/pages/MetodosDePago";
 
 function App() {
-  const [usuarioLogueado, setUsuarioLogueado] = useState(null);
+  const usuario =
+    JSON.parse(sessionStorage.getItem("loginVermontRestaurant")) || "";
+  const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
 
   return (
     <BrowserRouter>
-      <Menu
+       <Menu></Menu>
+      {/* <Menu
         usuarioLogueado={usuarioLogueado}
         setUsuarioLogueado={setUsuarioLogueado}
-      ></Menu>
+      ></Menu> */}
       <Routes>
         <Route path="/" element={<Inicio></Inicio>}></Route>
         <Route
@@ -51,11 +54,11 @@ function App() {
         <Route
           exact
           path="/login"
-          element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}
-        ></Route>
+          element={<Login setUsuarioLogueado={setUsuarioLogueado} />}
+        />
         <Route path="/registro" element={<Registro></Registro>}></Route>
-        {/* <Route path="/administrador" element={<Administrador></Administrador>}></Route> */}
-        <Route
+        <Route path="/administrador" element={<Administrador></Administrador>}></Route>
+        {/* <Route
           exact
           path="/administrador/*"
           element={
@@ -63,7 +66,7 @@ function App() {
               <RutasAdmin></RutasAdmin>
             </RutasProtegidas>
           }
-        ></Route>
+        ></Route> */}
         <Route path="*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>

@@ -13,19 +13,27 @@ const Login = ({ setUsuarioLogueado }) => {
   } = useForm();
   const navegacion = useNavigate();
 
-  const onSubmit = (usuario) => {
-    if (login(usuario)) {
+  const onSubmit = async (usuario) => {
+    const respuesta = await login(usuario);
+    if (respuesta.status === 200) {
       Swal.fire({
         title: "Bienvenido",
-        text: "Ingresaste al panel de administración de VermontRestaurant",
+        text: `Ingresaste al panel de administración de VermontRestaurant`,
         icon: "success",
       });
-      setUsuarioLogueado(usuario.email);
+      const datos = await respuesta.json();
+      sessionStorage.setItem(
+        "loginVermontRestaurant",
+        JSON.stringify({ email: datos.email, token: datos.token })
+      );
+
+      setUsuarioLogueado(datos);
+
       navegacion("/administrador");
     } else {
       Swal.fire({
         title: "Ocurrio un error",
-        text: "Email o password incorrecto",
+        text: `Email o password incorrecto`,
         icon: "error",
       });
     }
