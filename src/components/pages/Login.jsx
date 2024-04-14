@@ -14,8 +14,7 @@ const Login = ({ setUsuarioLogueado }) => {
   const navegacion = useNavigate();
 
   const onSubmit = async (usuario) => {
-
-    const respuesta = await login(usuario); 
+    const respuesta = await login(usuario);
     if (respuesta.status === 200) {
       //soy el admin
       Swal.fire({
@@ -24,9 +23,10 @@ const Login = ({ setUsuarioLogueado }) => {
         icon: "success",
       });
       const datos = await respuesta.json();
-      sessionStorage.setItem("loginVermontRestaurant",
-      JSON.stringify({ email: datos.email, token: datos.token })
-    );
+      sessionStorage.setItem(
+        "loginVermontRestaurant",
+        JSON.stringify({ email: datos.email, token: datos.token })
+      );
       //guardar el usuario en el state
       setUsuarioLogueado(datos);
       //redireccionar al admin
@@ -39,6 +39,27 @@ const Login = ({ setUsuarioLogueado }) => {
       });
     }
   };
+
+  // const validarDatos = async (datos) => {
+  //   if (login(datos)) {
+  //     Swal.fire({
+  //       icon: "success",
+  //       title: "Hola!",
+  //       text: "Bienvenido!",
+  //     });
+
+  //     navegacion("/administrador");
+
+  //     setUsuarioLogueado(datos.email);
+  //   } else {
+  //     console.log("error");
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "Oops...",
+  //       text: "Contraseña Incorrecta!",
+  //     });
+  //   }
+  // };
 
   const irARegistro = () => {
     navegacion("/registro");
@@ -72,17 +93,21 @@ const Login = ({ setUsuarioLogueado }) => {
                 </Form.Text>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group className="mb-3" controlId="loginVermontRestaurant">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="Password"
                   {...register("password", {
-                    required: "El nombre de password es obligatorio",
-                    pattern: {
-                      value: /^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}$/,
+                    required: "La contraseña es un campo requerido",
+                    minLength: {
+                      value: 6,
+                      message: "La contraseña debe tener al menos 6 caracteres",
+                    },
+                    maxLength: {
+                      value: 20,
                       message:
-                        "El password debe contener al menos una letra mayúscula, una letra minúscula y un número",
+                        "La contraseña no puede tener más de 20 caracteres",
                     },
                   })}
                 />
@@ -132,4 +157,3 @@ const Login = ({ setUsuarioLogueado }) => {
 };
 
 export default Login;
-

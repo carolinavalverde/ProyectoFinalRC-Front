@@ -21,7 +21,9 @@ import CardProducto from "./components/pages/Menu/CardProducto";
 import MetodosDePago from "./components/pages/MetodosDePago";
 
 function App() {
-  const [usuarioLogueado, setUsuarioLogueado] = useState(null);
+  const usuario =
+    JSON.parse(sessionStorage.getItem("loginVermontRestaurant")) || "";
+  const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
 
   return (
     <BrowserRouter>
@@ -52,8 +54,8 @@ function App() {
         <Route
           exact
           path="/login"
-          element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}
-        ></Route>
+          element={<Login setUsuarioLogueado={setUsuarioLogueado} />}
+        />
         <Route path="/registro" element={<Registro></Registro>}></Route>
         {/* <Route path="/administrador" element={<Administrador></Administrador>}></Route> */}
         <Route
