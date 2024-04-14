@@ -1,7 +1,5 @@
-//const APIProductos = import.meta.env.VITE_API_PRODUCTO;
-//const APIUsuarios = import.meta.env.VITE_API_USUARIO;
-const APIProductos = process.env.VITE_API_PRODUCTO;
-const APIUsuarios = process.env.VITE_API_USUARIO;
+const APIProductos = import.meta.env.VITE_API_PRODUCTO;
+//const APIProductos = process.env.VITE_API_PRODUCTO;
 console.log(APIProductos);
 
 export const leerProductos = async () => {
@@ -74,39 +72,20 @@ export const obtenerProducto = async (id) => {
   }
 };
 
-// para admin
 // const userAdmin = {
-//   email: "admin@vermontrestaurant.com",
-//   password: "Vermont123$",
+//   email: "admin@rollingcoffee.com",
+//   password: "123Aa$123",
 // };
 
-// export const login = (usuario) => {
-//   if (
-//     usuario.email === userAdmin.email &&
-//     usuario.password === userAdmin.password
-//   ) {
-//     sessionStorage.setItem("loginVermontRestaurant", JSON.stringify(usuario.email));
-//     return true;
-//   } else {
-//     return false;
-//   }
-// };
-
-export const login = async (usuario) => {
-  try {
-    console.log(usuario);
-    const respuesta = await fetch(APIUsuarios, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(usuario),
-    });
-    console.log(respuesta);
-    return respuesta;
-  } catch (error) {
-    console.log("errores en el login");
-    return;
+export const login = (usuario) => {
+  if (
+    usuario.email === userAdmin.email &&
+    usuario.password === userAdmin.password
+  ) {
+    sessionStorage.setItem("loginRollingCoffee", JSON.stringify(usuario.email));
+    return true;
+  } else {
+    return false;
   }
 };
 
