@@ -45,7 +45,7 @@ const Login = ({ setUsuarioLogueado }) => {
       Swal.fire({
         icon: "success",
         title: "Hola!",
-        text: "Bienvenido!",
+        text: "Bienvenido Admin de VermontRestaurant!",
       });
 
       navegacion("/administrador");
