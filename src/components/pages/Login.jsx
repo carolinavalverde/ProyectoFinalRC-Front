@@ -16,7 +16,6 @@ const Login = ({ setUsuarioLogueado }) => {
   const onSubmit = async (usuario) => {
     const respuesta = await login(usuario);
     if (respuesta.status === 200) {
-      //soy el admin
       Swal.fire({
         title: "Bienvenido",
         text: `Ingresaste al panel de administración de VermontRestaurant`,
@@ -27,9 +26,9 @@ const Login = ({ setUsuarioLogueado }) => {
         "loginVermontRestaurant",
         JSON.stringify({ email: datos.email, token: datos.token })
       );
-      //guardar el usuario en el state
+
       setUsuarioLogueado(datos);
-      //redireccionar al admin
+
       navegacion("/administrador");
     } else {
       Swal.fire({
@@ -39,27 +38,6 @@ const Login = ({ setUsuarioLogueado }) => {
       });
     }
   };
-
-  // const validarDatos = async (datos) => {
-  //   if (login(datos)) {
-  //     Swal.fire({
-  //       icon: "success",
-  //       title: "Hola!",
-  //       text: "Bienvenido!",
-  //     });
-
-  //     navegacion("/administrador");
-
-  //     setUsuarioLogueado(datos.email);
-  //   } else {
-  //     console.log("error");
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: "Oops...",
-  //       text: "Contraseña Incorrecta!",
-  //     });
-  //   }
-  // };
 
   const irARegistro = () => {
     navegacion("/registro");
@@ -74,7 +52,7 @@ const Login = ({ setUsuarioLogueado }) => {
         <Card.Body className="TextoLogin d-flex justify-content-center">
           <section className="d-flex row justify-content-center">
             <Form onSubmit={handleSubmit(onSubmit)} className="py-2 w-100">
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Group className="mb-3" controlId="usuarioEmail">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="text"

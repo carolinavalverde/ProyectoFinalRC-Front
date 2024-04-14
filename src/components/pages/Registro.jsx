@@ -62,7 +62,7 @@ const Registro = ({ setUsuarioLogueado }) => {
         <Card.Body className="TextoRegistro d-flex justify-content-center">
           <section className="d-flex row justify-content-center">
             <Form onSubmit={handleSubmit(onSubmit)} className="py-2 w-100">
-              <Form.Group className="mb-3" controlId="formBasicNombre">
+              <Form.Group className="mb-3" controlId="nombreUsuario">
                 <Form.Label>Nombre y Apellido</Form.Label>
                 <Form.Control
                   type="text"
@@ -81,7 +81,7 @@ const Registro = ({ setUsuarioLogueado }) => {
                 </Form.Text>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicDireccion">
+              <Form.Group className="mb-3" controlId="usuarioDireccion">
                 <Form.Label>Dirección</Form.Label>
                 <Form.Control
                   type="text"
@@ -95,7 +95,7 @@ const Registro = ({ setUsuarioLogueado }) => {
                 </Form.Text>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Group className="mb-3" controlId="usuarioEmail">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="text"
@@ -114,7 +114,7 @@ const Registro = ({ setUsuarioLogueado }) => {
                 </Form.Text>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group className="mb-3" controlId="usuarioPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"

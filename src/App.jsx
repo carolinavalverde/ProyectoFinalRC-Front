@@ -27,11 +27,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/*  <Menu></Menu>*/}
-      <Menu
+       <Menu></Menu>
+      {/* <Menu
         usuarioLogueado={usuarioLogueado}
         setUsuarioLogueado={setUsuarioLogueado}
-      ></Menu>
+      ></Menu> */}
       <Routes>
         <Route path="/" element={<Inicio></Inicio>}></Route>
         <Route
@@ -57,8 +57,8 @@ function App() {
           element={<Login setUsuarioLogueado={setUsuarioLogueado} />}
         />
         <Route path="/registro" element={<Registro></Registro>}></Route>
-        {/* <Route path="/administrador" element={<Administrador></Administrador>}></Route> */}
-        <Route
+        <Route path="/administrador" element={<Administrador></Administrador>}></Route>
+        {/* <Route
           exact
           path="/administrador/*"
           element={
@@ -66,7 +66,7 @@ function App() {
               <RutasAdmin></RutasAdmin>
             </RutasProtegidas>
           }
-        ></Route>
+        ></Route> */}
         <Route path="*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>
