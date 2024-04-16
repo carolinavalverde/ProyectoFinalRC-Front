@@ -142,7 +142,6 @@ const MetodosDePago = () => {
           </div>
         </div>
       </div>
-      {/* Ventana modal */}
       <Modal show={mostrarModal} onHide={handleCerrarModal}>
         <Modal.Header closeButton>
           <Modal.Title>¡Compra exitosa!</Modal.Title>

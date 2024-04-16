@@ -77,7 +77,7 @@ const Administrador = () => {
         <tbody>
           {productos.map((producto) => (
             <ItemProducto
-              key={producto.id}
+              key={producto._id}
               producto={producto}
               setProductos={setProductos}
             ></ItemProducto>
@@ -102,7 +102,7 @@ const Administrador = () => {
         <tbody>
           {usuarios.map((usuario) => (
             <ItemUsuario
-              key={usuario.id}
+              key={usuario._id}
               usuario={usuario}
               setUsuarios={setUsuarios}
             />

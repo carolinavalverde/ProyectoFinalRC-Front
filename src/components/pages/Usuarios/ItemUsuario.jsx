@@ -42,7 +42,7 @@ const ItemUsuario = ({ usuario, setUsuarios }) => {
 
   return (
     <tr className="tablaAdmin">
-      <td className="text-center">{usuario.id}</td>
+      <td className="text-center">{usuario._id}</td>
       <td>{usuario.nombreyapellido}</td>
       <td>{usuario.direccion}</td>
       <td>{usuario.email}</td>

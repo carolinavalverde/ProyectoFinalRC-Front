@@ -70,7 +70,7 @@ const ItemProducto = ({ producto, setProductos }) => {
 
   return (
     <tr className="tablaAdmin">
-      <td className="text-center">{producto.id}</td>
+      <td className="text-center">{producto._id}</td>
       <td>{producto.nombreProducto}</td>
       <td>
         <span

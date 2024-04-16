@@ -86,7 +86,7 @@ const FormularioProducto = ({ editando, titulo }) => {
       <hr />
       <Form className="my-4" onSubmit={handleSubmit(datosValidados)}>
         <Form.Group className="mb-3" controlId="formNombreProducto">
-          <Form.Label>Producto*</Form.Label>
+          <Form.Label>Producto</Form.Label>
           <Form.Control
             type="text"
             placeholder="Ej: Salmon Marinado"
@@ -109,7 +109,7 @@ const FormularioProducto = ({ editando, titulo }) => {
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPrecio">
-          <Form.Label>Precio*</Form.Label>
+          <Form.Label>Precio</Form.Label>
           <Form.Control
             type="number"
             placeholder="Ej: 50"
@@ -130,7 +130,7 @@ const FormularioProducto = ({ editando, titulo }) => {
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formImagen">
-          <Form.Label>Imagen URL*</Form.Label>
+          <Form.Label>Imagen URL</Form.Label>
           <Form.Control
             type="text"
             placeholder="Ej: https://www.pexels.com/es-es/vans-en-blanco-y-negro-fuera-de-la-decoracion-para-colgar-en-la-pared-1230679/"
@@ -148,7 +148,7 @@ const FormularioProducto = ({ editando, titulo }) => {
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formCategoria">
-          <Form.Label>Categoría*</Form.Label>
+          <Form.Label>Categoría</Form.Label>
           <Form.Select
             {...register("categoria", {
               required: "Debe seleccionar una categoría",
@@ -165,7 +165,7 @@ const FormularioProducto = ({ editando, titulo }) => {
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formDescripcionBreve">
-          <Form.Label>Descripción breve*</Form.Label>
+          <Form.Label>Descripción breve</Form.Label>
           <Form.Control
             type="text"
             placeholder="Ej: Salmón fresco y tierno, una delicia"
@@ -187,7 +187,7 @@ const FormularioProducto = ({ editando, titulo }) => {
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formDescripcionAmplia">
-          <Form.Label>Descripción Amplia*</Form.Label>
+          <Form.Label>Descripción Amplia</Form.Label>
           <Form.Control
             type="text"
             placeholder="Ej: Salmón fresco y tierno, una delicia para los amantes del buen comer, con su textura suave y su sabor delicado que deleita los sentidos en cada bocado."

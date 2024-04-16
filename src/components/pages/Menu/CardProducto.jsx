@@ -23,7 +23,7 @@ const CardProducto = ({ producto }) => {
                             <Card.Text className="TextoCardProducto fs-5">Precio: {producto.precio}</Card.Text>
                             <Link
                                 className="btn btn-light me-2"
-                                to={`/detalleproducto/${producto.id}`}
+                                to={`/detalleproducto/${producto._id}`}
                             >
                                 Ver más
                             </Link>

@@ -1,5 +1,5 @@
-const APIUsuarios = import.meta.env.VITE_API_USUARIOS;
-//const APIUsuarios = process.env.VITE_API_USUARIOS;
+//const APIUsuarios = import.meta.env.VITE_API_USUARIOS;
+const APIUsuarios = process.env.VITE_API_USUARIOS;
 console.log(APIUsuarios);
 
 export const listarUsuarios = async () => {
