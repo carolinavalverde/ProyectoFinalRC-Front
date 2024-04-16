@@ -67,8 +67,8 @@ const Login = ({ setUsuarioLogueado }) => {
 
   return (
     <Container className="d-flex justify-content-center">
-      <section className="my-5 col-6 container bg-white bg-opacity-50 rounded">
-        <Card.Header as="h5" className="TituloLogin display-6 text-center ">
+      <section className="my-5 col-lg-6 col-md-6 col-sm-8 container bg-white bg-opacity-50 rounded">
+        <Card.Header as="h5" className="TituloLogin display-6 text-center my-3">
           Login
         </Card.Header>
         <Card.Body className="TextoLogin d-flex justify-content-center">
@@ -123,7 +123,7 @@ const Login = ({ setUsuarioLogueado }) => {
 
               <section className="pt-3 d-flex row justify-content-center">
                 <Button
-                  className="btn btnLogin mx-2 my-2"
+                  className="btn btnLogin text-uppercase mx-2 my-2"
                   style={{ width: "fit-content" }}
                   type="submit"
                 >
@@ -134,7 +134,7 @@ const Login = ({ setUsuarioLogueado }) => {
 
             <section className="pb-2 justify-content-center text-center">
               <Button
-                className="btn bg-dark bg-opacity-75 mx-2 my-2"
+                className="btn btnSecundarioLogin text-uppercase bg-opacity-75 mx-2 my-2"
                 style={{ width: "fit-content" }}
                 onClick={irARegistro}
               >
@@ -145,7 +145,7 @@ const Login = ({ setUsuarioLogueado }) => {
         </Card.Body>
       </section>
 
-      <section className="ImgSection">
+      <section className="ImgSection d-none d-sm-block">
         <img
           className="ImgLogin img-fluid h-100 ms-2 me-0"
           src="https://images.pexels.com/photos/9394523/pexels-photo-9394523.jpeg"

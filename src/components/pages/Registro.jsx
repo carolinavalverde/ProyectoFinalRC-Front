@@ -55,8 +55,8 @@ const Registro = ({ setUsuarioLogueado }) => {
 
   return (
     <Container className="d-flex justify-content-center">
-      <section className="my-5 col-6 container bg-white bg-opacity-50 rounded">
-        <Card.Header as="h5" className="TituloRegistro display-6 text-center">
+      <section className="my-5 col-lg-6 col-md-6 col-sm-8 container bg-white bg-opacity-50 rounded">
+        <Card.Header as="h5" className="TituloRegistro display-6 text-center my-3">
           Registro
         </Card.Header>
         <Card.Body className="TextoRegistro d-flex justify-content-center">
@@ -141,7 +141,7 @@ const Registro = ({ setUsuarioLogueado }) => {
 
               <section className="pt-3 row justify-content-center">
                 <Button
-                  className="btn btnRegistro text-light mx-2 my-2"
+                  className="btn btnRegistro text-uppercase text-light mx-2 my-2"
                   style={{ width: "fit-content" }}
                   type="submit"
                 >
@@ -152,7 +152,7 @@ const Registro = ({ setUsuarioLogueado }) => {
 
             <section className="pb-2 justify-content-center text-center">
               <Button
-                className="btn bg-dark bg-opacity-75 mx-2 my-2"
+                className="btn btnSecundarioRegistro text-uppercase bg-opacity-75 mx-2 my-2"
                 style={{ width: "fit-content" }}
                 onClick={irALogin}
               >
@@ -163,7 +163,7 @@ const Registro = ({ setUsuarioLogueado }) => {
         </Card.Body>
       </section>
 
-      <section className="ImgSection">
+      <section className="ImgSection d-none d-sm-block">
         <img
           className="ImgRegistro img-fluid h-100 ms-2 me-0"
           src="https://images.pexels.com/photos/2114062/pexels-photo-2114062.jpeg"
