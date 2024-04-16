@@ -1,5 +1,5 @@
-//const APIProductos = import.meta.env.VITE_API_PRODUCTO;
-const APIProductos = process.env.VITE_API_PRODUCTO;
+const APIProductos = import.meta.env.VITE_API_PRODUCTO;
+//const APIProductos = process.env.VITE_API_PRODUCTO;
 console.log(APIProductos);
 
 export const leerProductos = async () => {
