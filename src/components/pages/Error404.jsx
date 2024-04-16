@@ -1,12 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom"; // Importar Link desde react-router-dom
 import "../../styles/Error.css";
 
 const Error404 = () => {
-  const volverAlInicio = () => {
-    window.location.href = "/";
-  };
-
   return (
     <main className="mainSection main-error">
       <Container>
@@ -18,9 +15,9 @@ const Error404 = () => {
           />
         </div>
         <div className="d-flex justify-content-center pb-5">
-          <button className="btn btn-success" onClick={volverAlInicio}>
+          <Link to="/" className="btn btn-success">
             Volver al Inicio
-          </button>
+          </Link>
         </div>
       </Container>
     </main>

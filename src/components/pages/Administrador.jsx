@@ -40,14 +40,15 @@ const Administrador = () => {
         </Link>
       </div>
       <hr />
-      <Table responsive striped bordered hover>
+      <Table responsive striped hover className="tablaAdmin mt-3 mb-5">
         <thead>
           <tr className="text-center TextoAdmin">
-            <th>Cod</th>
+            <th className="filaTituloTabla">Cod</th>
             <th>Producto</th>
+            <th>Estado</th>
             <th>Precio</th>
             <th>URL de Imagen</th>
-            <th>Categoria</th>
+            <th>Categoría</th>
             <th>Opciones</th>
           </tr>
         </thead>

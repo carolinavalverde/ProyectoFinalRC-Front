@@ -3,12 +3,26 @@
 
 .TituloAdmin {
   font-family: "Cormorant Garamond", serif;
+  color: #320606;
 }
 
 .TextoAdmin {
   font-family: "Josefin Sans", sans-serif;
+  color: #320606;
 }
 
 .BgAdmin {
-  background-color: #fff380;
+  background-color: #fff3b0;
 }
+
+.tablaAdmin {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tablaAdmin th,
+.tablaAdmin td {
+  border: 3px solid #e09f3e;
+  padding: 8px;
+}
+
