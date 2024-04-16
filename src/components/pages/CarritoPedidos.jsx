@@ -15,7 +15,7 @@ const CarritoPedidos = () => {
 
   const calcularTotal = () => {
     return productosEnCarrito.reduce(
-      (total, producto) => total + Number(producto.precio),
+      (total, producto) => total + Number(producto.precio * producto.cantidad),
       0
     );
   };

@@ -42,7 +42,7 @@ const Detalleproducto = () => {
           <div className="containerImagen ">
             <img
               src={producto.imagen}
-              className="img-fluid rounded border-3 col-8"
+              className="img-fluid rounded border-3 col-6"
               alt={producto.nombreProducto}
             />
           </div>
