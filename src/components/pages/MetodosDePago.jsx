@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Modal, Button } from "react-bootstrap";
 import "../../styles/MetodosDePago.css";
 
 const MetodosDePago = () => {
   const navigate = useNavigate();
   const [metodoSeleccionado, setMetodoSeleccionado] = useState(null);
+  const [mostrarModal, setMostrarModal] = useState(false);
 
   const handleSeleccionarMetodo = (metodo) => {
     setMetodoSeleccionado(metodo);
@@ -13,13 +15,16 @@ const MetodosDePago = () => {
   const handleConfirmarPago = () => {
     if (metodoSeleccionado) {
       setTimeout(() => {
-        console.log("Pago confirmado con:", metodoSeleccionado);
-        localStorage.removeItem("carrito");
-        navigate(-1);
+        setMostrarModal(true);
       }, 2000);
     } else {
       alert("Por favor, selecciona un método de pago.");
     }
+  };
+
+  const handleCerrarModal = () => {
+    setMostrarModal(false);
+    navigate("/");
   };
 
   return (
@@ -137,6 +142,20 @@ const MetodosDePago = () => {
           </div>
         </div>
       </div>
+      {/* Ventana modal */}
+      <Modal show={mostrarModal} onHide={handleCerrarModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>¡Compra exitosa!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Su producto será enviado. ¡Gracias por su compra!</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCerrarModal}>
+            Volver al inicio
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </section>
   );
 };

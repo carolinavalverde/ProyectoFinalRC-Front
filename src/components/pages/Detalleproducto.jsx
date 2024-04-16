@@ -49,7 +49,7 @@ const Detalleproducto = () => {
           <p className="w-75 m-auto py-3 lead">{producto.descripcion_amplia}</p>
           <div className="d-flex justify-content-center">
             <Button
-              className="btn btn-success display-6"
+              className="btn btn-success display-6 text-uppercase mb-4"
               onClick={handleComprar}
             >
               Comprar

@@ -10,11 +10,11 @@ const CarritoPedidos = () => {
   useEffect(() => {
     const productosGuardados =
       JSON.parse(localStorage.getItem("carrito")) || [];
-    // Asegurarse de inicializar correctamente la cantidad para cada producto
+
     const productosConCantidadInicializada = productosGuardados.map(
       (producto) => ({
         ...producto,
-        cantidad: producto.cantidad || 1, // Si no hay cantidad, inicializarla en 1
+        cantidad: producto.cantidad || 1,
       })
     );
     setProductosEnCarrito(productosConCantidadInicializada);
@@ -53,6 +53,7 @@ const CarritoPedidos = () => {
   };
 
   const handleFinalizarCompra = () => {
+    localStorage.removeItem("carrito");
     navegacion("/metodosdepago");
   };
 

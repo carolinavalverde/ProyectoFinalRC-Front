@@ -13,38 +13,38 @@ const Footer = () => {
               </div>
             </Link>
           </section>
-          <section className="col-md-4 col-lg-4 TextoFooter text-center">
+          <section className="col-md-4 col-lg-4 text-center">
             <div>
               <h6>CONTACTANOS</h6>
               <p className="TextoFooter">Jueves a Domingos de 20pm a 02am</p>
               <ul className="list-group-item">
-                <li className="list-group-item mb-2">
+                <li className="list-group-item mb-2 TextoFooter">
                   <i className="bi bi-telephone-fill"></i> 381-21764295
                 </li>
-                <li className="list-group-item mb-2">
+                <li className="list-group-item mb-2 TextoFooter">
                   <i className="bi bi-envelope-fill"></i>{" "}
                   vermont.restaurant@gmail.com
                 </li>
-                <li className="list-group-item mb-2">
+                <li className="list-group-item mb-2 TextoFooter">
                   <i className="bi bi-geo-alt-fill"></i> Gral. Paz 576, San
                   Miguel de Tucumán
                 </li>
               </ul>
             </div>
           </section>
-          <section className="col-md-3 col-lg-4 TextoFooter">
+          <section className="col-md-3 col-lg-4">
             <div className="text-end">
               <h5>Seguinos</h5>
               <ul className="list-unstyled">
                 <div>
-                  <Link to="/error404">
-                    <i className="bi bi-instagram fs-4 TextoFooter"></i>
+                  <Link to="/error404" className="TextoFooter">
+                    <i className="bi bi-instagram fs-4 footerIcon"></i>
                   </Link>
-                  <Link to="/error404" className="mx-2">
-                    <i className="bi bi-facebook fs-4 TextoFooter"></i>
+                  <Link to="/error404" className="mx-2 TextoFooter">
+                    <i className="bi bi-facebook fs-4 footerIcon"></i>
                   </Link>
-                  <Link to="/error404">
-                    <i className="bi bi-twitter fs-4 TextoFooter"></i>
+                  <Link to="/error404" className="TextoFooter">
+                    <i className="bi bi-twitter fs-4 footerIcon"></i>
                   </Link>
                 </div>
                 <section className="LogoNav d-flex align-items-end justify-content-end pt-5">
