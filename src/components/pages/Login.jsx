@@ -38,28 +38,7 @@ const Login = ({ setUsuarioLogueado }) => {
          icon: "error",
      });
      }
-   };
-
-  // const validarDatos = async (datos) => {
-  //   if (login(datos)) {
-  //     Swal.fire({
-  //       icon: "success",
-  //       title: "Hola!",
-  //       text: "Bienvenido Admin de VermontRestaurant!",
-  //     });
-
-  //     navegacion("/administrador");
-
-  //     setUsuarioLogueado(datos.email);
-  //   } else {
-  //     console.log("error");
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: "Oops...",
-  //       text: "Contraseña Incorrecta!",
-  //     });
-  //   }
-  // };
+   };  
 
   const irARegistro = () => {
     navegacion("/registro");

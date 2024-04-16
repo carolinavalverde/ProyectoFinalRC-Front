@@ -2,6 +2,10 @@ const APIProductos = import.meta.env.VITE_API_PRODUCTO;
 //const APIProductos = process.env.VITE_API_PRODUCTO;
 console.log(APIProductos);
 
+const APIUsuarios = import.meta.env.VITE_API_USUARIO;
+//const APIUsuarios = process.env.VITE_API_USUARIO;
+console.log(APIUsuarios);
+
 export const leerProductos = async () => {
   try {
     const respuesta = await fetch(APIProductos);
@@ -93,20 +97,25 @@ export const obtenerProducto = async (id) => {
 export const login = async (usuario) => {
   try {
     console.log(usuario);
-    const respuesta = await fetch(URL_Usuario, {
+    const respuesta = await fetch(APIUsuarios, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(usuario),
     });
-    console.log(respuesta);
-    return respuesta;
+
+    if (respuesta.ok) {
+      return respuesta.json(); 
+    } else {
+      throw new Error(`Error al iniciar sesión: ${respuesta.statusText}`);
+    }
   } catch (error) {
-    console.log("errores en el login");
-    return;
+    console.error("Error en el login:", error);
+    throw error;
   }
 };
+
 
 export const registrarUsuario = async (usuario) => {
   try {
