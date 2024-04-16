@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
+
+.pagoImg {
+  width: 100px;
+  height: auto;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.selected {
+  border: 3px solid green;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.pagoTitulo {
+  font-family: "Cormorant Garamond", serif;
+  color: #540b0e;
+}
+
+.pagoTexto {
+  font-family: "Josefin Sans", sans-serif;
+  color: #540b0e;
+  font-size: 1.2em;
+}

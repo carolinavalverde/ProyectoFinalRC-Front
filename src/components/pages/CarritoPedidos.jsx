@@ -10,14 +10,21 @@ const CarritoPedidos = () => {
   useEffect(() => {
     const productosGuardados =
       JSON.parse(localStorage.getItem("carrito")) || [];
-    setProductosEnCarrito(productosGuardados);
+    // Asegurarse de inicializar correctamente la cantidad para cada producto
+    const productosConCantidadInicializada = productosGuardados.map(
+      (producto) => ({
+        ...producto,
+        cantidad: producto.cantidad || 1, // Si no hay cantidad, inicializarla en 1
+      })
+    );
+    setProductosEnCarrito(productosConCantidadInicializada);
   }, []);
 
   const calcularTotal = () => {
-    return productosEnCarrito.reduce(
-      (total, producto) => total + Number(producto.precio * producto.cantidad),
-      0
-    );
+    const total = productosEnCarrito.reduce((total, producto) => {
+      return total + Number(producto.precio) * producto.cantidad;
+    }, 0);
+    return total;
   };
 
   const eliminarProducto = (index) => {
@@ -58,12 +65,12 @@ const CarritoPedidos = () => {
             <span>El carrito está vacío.</span>
             <span>Seleccione un producto.</span>
             <img
-              className="img-fluid mt-2 mb-4 col-8"
+              className="img-fluid mt-2 mb-4 col-6 rounded"
               src="https://images.pexels.com/photos/8702323/pexels-photo-8702323.jpeg"
               alt="imagen carrito vacio"
             />
             <div className="d-flex justify-content-center">
-              <Link className="btn btn-success mb-4" to={`/`}>
+              <Link className="btn btn-success mb-4 text-uppercase" to={`/`}>
                 Volver al Inicio
               </Link>
             </div>

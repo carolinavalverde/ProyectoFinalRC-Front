@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../../styles/MetodosDePago.css";
 
 const MetodosDePago = () => {
   const navigate = useNavigate();
@@ -15,63 +16,118 @@ const MetodosDePago = () => {
         console.log("Pago confirmado con:", metodoSeleccionado);
         localStorage.removeItem("carrito");
         navigate(-1);
-      }, 2000); 
+      }, 2000);
     } else {
       alert("Por favor, selecciona un método de pago.");
     }
   };
 
   return (
-    <section className="container">
-      <h2 className="my-3 text-center fw-bold">Métodos de Pago</h2>
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <div className="mb-4 p-2 bg-light rounded bg-opacity-50">
+    <section className="container mt-5">
+      <div className="container mt-5 d-flex pagoTitulo">
+        <i className="bi bi-credit-card fs-3"></i>
+        <h2 className="text-center display-6 my-0 ms-3">Métodos de Pago</h2>
+      </div>
+      <hr />
+      <div className="row justify-content-center pagoTexto">
+        <div className="col-8">
+          <div className="card bg-light rounded p-3 mb-5 shadow">
             <div className="card-body text-center">
-              <h5 className="card-title my-3">Selecciona un método de pago</h5>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="metodoPago"
-                  id="tarjetaCredito"
-                  value="Tarjeta de crédito"
-                  onChange={() => handleSeleccionarMetodo("Tarjeta de crédito")}
-                />
-                <label className="form-check-label" htmlFor="tarjetaCredito">
-                  Tarjeta de crédito
-                </label>
+              <h5 className="card-title mb-4 pagoTexto">
+                Selecciona un método de pago
+              </h5>
+              <div className="form-check mt-3">
+                <div className="mb-3">
+                  <i className="bi bi-credit-card me-2"></i>
+                  <label className="form-check-label" htmlFor="tarjetaCredito">
+                    Tarjeta de crédito
+                  </label>
+                </div>
+                <div className="row justify-content-around mt-2">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png"
+                    alt="mastercard crédito"
+                    className={`pagoImg ${
+                      metodoSeleccionado === "Mastercard Crédito"
+                        ? "selected"
+                        : ""
+                    }`}
+                    onClick={() =>
+                      handleSeleccionarMetodo("Mastercard Crédito")
+                    }
+                  />
+                  <img
+                    src="https://logos-marcas.com/wp-content/uploads/2020/06/Visa-Logo.png"
+                    alt="visa crédito"
+                    className={`pagoImg ${
+                      metodoSeleccionado === "Visa Crédito" ? "selected" : ""
+                    }`}
+                    onClick={() => handleSeleccionarMetodo("Visa Crédito")}
+                  />
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzC1-8T7YJq8ycBp8gWCJ4XsiuUWBsqdciKmg-zXfEgnzt9HlGqNzb_cMphbJRQ_CJGHE&usqp=CAU"
+                    alt="american express crédito"
+                    className={`pagoImg ${
+                      metodoSeleccionado === "American Express Crédito"
+                        ? "selected"
+                        : ""
+                    }`}
+                    onClick={() =>
+                      handleSeleccionarMetodo("American Express Crédito")
+                    }
+                  />
+                </div>
               </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="metodoPago"
-                  id="paypal"
-                  value="PayPal"
-                  onChange={() => handleSeleccionarMetodo("PayPal")}
-                />
-                <label className="form-check-label" htmlFor="paypal">
-                  PayPal
-                </label>
+              <div className="form-check mt-3">
+                <div className="mb-3">
+                  <i className="bi bi-credit-card-2-front me-2"></i>
+                  <label className="form-check-label" htmlFor="tarjetaDebito">
+                    Tarjeta de débito
+                  </label>
+                </div>
+                <div className="row justify-content-around mt-2">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png"
+                    alt="mastercard débito"
+                    className={`pagoImg ${
+                      metodoSeleccionado === "Mastercard Débito"
+                        ? "selected"
+                        : ""
+                    }`}
+                    onClick={() => handleSeleccionarMetodo("Mastercard Débito")}
+                  />
+                  <img
+                    src="https://logos-marcas.com/wp-content/uploads/2020/06/Visa-Logo.png"
+                    alt="visa débito"
+                    className={`pagoImg ${
+                      metodoSeleccionado === "Visa Débito" ? "selected" : ""
+                    }`}
+                    onClick={() => handleSeleccionarMetodo("Visa Débito")}
+                  />
+                </div>
               </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="metodoPago"
-                  id="transferencia"
-                  value="Transferencia bancaria"
-                  onChange={() =>
-                    handleSeleccionarMetodo("Transferencia bancaria")
-                  }
-                />
-                <label className="form-check-label" htmlFor="transferencia">
-                  Transferencia bancaria
-                </label>
+              <div className="form-check mt-3">
+                <div className="mb-3">
+                  <i className="bi bi-cash me-2"></i>
+                  <label className="form-check-label" htmlFor="efectivo">
+                    Efectivo
+                  </label>
+                </div>
+                <div className="row justify-content-around mt-2">
+                  <img
+                    src="https://cdn.worldvectorlogo.com/logos/pago-efectivo-2020.svg"
+                    alt="pago en efectivo"
+                    className={`pagoImg ${
+                      metodoSeleccionado === "Efectivo" ? "selected" : ""
+                    }`}
+                    onClick={() => handleSeleccionarMetodo("Efectivo")}
+                  />
+                </div>
               </div>
               <button
-                className="btn btn-success text-dark mt-3"
+                className={`btn btn-success text-uppercase mt-4 ${
+                  !metodoSeleccionado && "disabled"
+                }`}
                 onClick={handleConfirmarPago}
                 disabled={!metodoSeleccionado}
               >
