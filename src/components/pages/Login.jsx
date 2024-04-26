@@ -14,35 +14,27 @@ const Login = ({ setUsuarioLogueado }) => {
   const navegacion = useNavigate();
 
   const onSubmit = async (usuario) => {
-    try {
-      const respuesta = await login(usuario);
-      if (respuesta.ok) {
-        const datos = await respuesta.json();
-        sessionStorage.setItem(
-          "loginVermontRestaurant",
-          JSON.stringify({ email: datos.email, token: datos.token })
-        );
-        //guardar el usuario en el state
-        setUsuarioLogueado(datos);
-        //redireccionar al admin
-        navegacion("/administrador");
+    const respuesta = await login(usuario);
+
+    if (respuesta) {
+      console.log(respuesta);
+      const usuario = {
+        rol: respuesta.rol,
+        nombreUsuario: respuesta.nombreUsuario,
+        contraseña: respuesta.contraseña,
+        email: respuesta.email,
+      };
+      sessionStorage.setItem("usuario", JSON.stringify(usuario));
+      Swal.fire(`¡Bienvenido!`, `Iniciaste sesión correctamente.`, "success");
+      if (respuesta.rol === "Admin") {
+        navegacion("/administrador/");
       } else {
-        Swal.fire({
-          title: "Ocurrió un error",
-          text: `Email o password incorrecto`,
-          icon: "error",
-        });
+        navegacion("/");
       }
-    } catch (error) {
-      console.error(error);
-      Swal.fire({
-        title: "Ocurrió un error",
-        text: `Error al iniciar sesión`,
-        icon: "error",
-      });
+    } else {
+      Swal.fire("Error", "Email o contraseña incorrecto ", "error");
     }
   };
-  
 
   const irARegistro = () => {
     navegacion("/registro");
@@ -80,22 +72,20 @@ const Login = ({ setUsuarioLogueado }) => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
-                  placeholder="Password"
-                  {...register("password", {
-                    required: "La contraseña es un campo requerido",
-                    minLength: {
-                      value: 6,
-                      message: "La contraseña debe tener al menos 6 caracteres",
-                    },
-                    maxLength: {
-                      value: 20,
+                  placeholder="Contraseña"
+                  minLength={8}
+                  maxLength={16}
+                  {...register("contraseña", {
+                    required: "La contraseña es un dato obligatorio",
+                    pattern: {
+                      value: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
                       message:
-                        "La contraseña no puede tener más de 20 caracteres",
+                        "Su contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.",
                     },
                   })}
                 />
                 <Form.Text className="text-danger">
-                  {errors.password?.message}
+                  {errors.contraseña?.message}
                 </Form.Text>
               </Form.Group>
               <section className="d-flex justify-content-star">
