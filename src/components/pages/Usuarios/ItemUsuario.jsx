@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import Swal from "sweetalert2";
-import { borrarUsuario, listarUsuarios } from "../../../helpers/queriesUsuario";
+import { borrarUsuario, listarUsuarios } from "../../../helpers/queries.js";
 
 const ItemUsuario = ({ usuario, setUsuarios }) => {
   const borrarUsuario = async () => {

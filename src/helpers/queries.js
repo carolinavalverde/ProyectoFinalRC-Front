@@ -82,18 +82,6 @@ export const obtenerProducto = async (id) => {
 //   password: "Vermont123$",
 // };
 
-// export const login = (usuario) => {
-//   if (
-//     usuario.email === userAdmin.email &&
-//     usuario.password === userAdmin.password
-//   ) {
-//     sessionStorage.setItem("loginVermontRestaurant", JSON.stringify(usuario.email));
-//     return true;
-//   } else {
-//     return false;
-//   }
-// };
-
 export const login = async (usuario) => {
   try {
     console.log(usuario);
@@ -106,9 +94,12 @@ export const login = async (usuario) => {
     });
 
     if (respuesta.ok) {
-      return respuesta.json(); 
+      const data = await respuesta.json();
+      sessionStorage.setItem("loginVermontRestaurant", JSON.stringify(data)); // Almacenar el token en sessionStorage
+      return data; 
     } else {
-      throw new Error(`Error al iniciar sesión: ${respuesta.statusText}`);
+      const error = await respuesta.json(); 
+      throw new Error(`Error al iniciar sesión: ${error.message}`);
     }
   } catch (error) {
     console.error("Error en el login:", error);
@@ -117,15 +108,78 @@ export const login = async (usuario) => {
 };
 
 
+
+//para usuarios
 export const registrarUsuario = async (usuario) => {
   try {
-    const respuesta = await fetch(APIRegistro, {
+    const respuestaListaUsuarios = await fetch(APIUsuarios);
+    console.log(respuestaListaUsuarios)
+    const listaUsuarios = await respuestaListaUsuarios.json();
+    console.log(listaUsuarios)
+    const usuarioExistente = listaUsuarios.usuarios.find(
+      (itemUsuario) =>
+      itemUsuario.nombreUsuario === usuario.nombreUsuario ||
+      itemUsuario.email === usuario.email
+    );
+    if (!usuarioExistente) {
+      const respuestaRegistro = await fetch(APIUsuarios, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(usuario),
+      });
+      const data = await respuestaRegistro.json();
+      return data;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const listarUsuarios = async () => {
+  try {
+    const respuesta = await fetch(APIUsuarios);
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const borrarUsuario = async (id) => {
+  try {
+    const respuesta = await fetch(APIUsuarios + "/" + id, {
+      method: "DELETE",
+      headers: {
+      },
+    });
+    console.log(respuesta);
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//para carrito de pedidos
+export const crearPedido = async (nuevoPedido) => {
+  try {
+    const respuesta = await fetch(URLPedidos, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(usuario),
+      body: JSON.stringify(nuevoPedido),
     });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const leerPedido = async () => {
+  try {
+    const respuesta = await fetch(APIPedido);
     return respuesta;
   } catch (error) {
     console.log(error);

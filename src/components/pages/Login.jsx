@@ -13,32 +13,36 @@ const Login = ({ setUsuarioLogueado }) => {
   } = useForm();
   const navegacion = useNavigate();
 
- const onSubmit = async (usuario) => {
-     const respuesta = await login(usuario);
-   if (respuesta.status === 200) {
-     //soy el admin
-       Swal.fire({
-        title: "Bienvenido",
-        text: `Ingresaste al panel de administración de VermontRestaurant`,
-        icon: "success",
-      });
-       const datos = await respuesta.json();
-      sessionStorage.setItem(
-         "loginVermontRestaurant",
-         JSON.stringify({ email: datos.email, token: datos.token })
-      );
-      //guardar el usuario en el state
-      setUsuarioLogueado(datos);
-      //redireccionar al admin
-       navegacion("/administrador");
-   } else {
+  const onSubmit = async (usuario) => {
+    try {
+      const respuesta = await login(usuario);
+      if (respuesta.ok) {
+        const datos = await respuesta.json();
+        sessionStorage.setItem(
+          "loginVermontRestaurant",
+          JSON.stringify({ email: datos.email, token: datos.token })
+        );
+        //guardar el usuario en el state
+        setUsuarioLogueado(datos);
+        //redireccionar al admin
+        navegacion("/administrador");
+      } else {
+        Swal.fire({
+          title: "Ocurrió un error",
+          text: `Email o password incorrecto`,
+          icon: "error",
+        });
+      }
+    } catch (error) {
+      console.error(error);
       Swal.fire({
-        title: "Ocurrio un error",
-         text: `Email o password incorrecto`,
-         icon: "error",
-     });
-     }
-   };  
+        title: "Ocurrió un error",
+        text: `Error al iniciar sesión`,
+        icon: "error",
+      });
+    }
+  };
+  
 
   const irARegistro = () => {
     navegacion("/registro");
