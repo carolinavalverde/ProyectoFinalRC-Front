@@ -15,35 +15,28 @@ const Registro = ({ setUsuarioLogueado }) => {
 
   const onSubmit = async (usuario) => {
     try {
+      // Validar el formulario aquí
+      if (!usuario.nombreApellido || !usuario.email || !usuario.password) {
+        throw new Error("Todos los campos son obligatorios");
+      }
+
       const respuesta = await registrarUsuario(usuario);
-      if (respuesta.status === 201) {
-        // localStorage.setItem("usuarioRegistrado", JSON.stringify(usuario));
-        // console.log(
-        //   "Usuario registrado:",
-        //   JSON.parse(localStorage.getItem("usuarioRegistrado"))
-        // );
+      if (respuesta) {
         Swal.fire({
           title: "Registro exitoso",
           text: "Usuario registrado correctamente",
           icon: "success",
         });
-
         setUsuarioLogueado(usuario.email);
-
         navegacion("/login");
-      } else {
-        Swal.fire({
-          title: "Ocurrió un error",
-          text: "No se pudo registrar el usuario. Inténtelo nuevamente",
-          icon: "error",
-        });
       }
     } catch (error) {
       console.error("Error al registrar el usuario:", error);
-
       Swal.fire({
         title: "Ocurrió un error",
-        text: "Hubo un problema al intentar registrar el usuario. Por favor, inténtelo nuevamente más tarde",
+        text:
+          error.message ||
+          "Hubo un problema al intentar registrar el usuario. Por favor, inténtelo nuevamente más tarde",
         icon: "error",
       });
     }
@@ -62,7 +55,7 @@ const Registro = ({ setUsuarioLogueado }) => {
         <Card.Body className="TextoRegistro d-flex justify-content-center">
           <section className="d-flex row justify-content-center">
             <Form onSubmit={handleSubmit(onSubmit)} className="py-2 w-100">
-              <Form.Group className="mb-3" controlId="formBasicNombre">
+              <Form.Group className="mb-3" controlId="nombreApellido">
                 <Form.Label>Nombre y Apellido</Form.Label>
                 <Form.Control
                   type="text"
@@ -77,7 +70,7 @@ const Registro = ({ setUsuarioLogueado }) => {
                   })}
                 />
                 <Form.Text className="text-danger">
-                  {errors.nombreApellido?.message}
+                  {errors.nombreApellido && errors.nombreApellido.message}
                 </Form.Text>
               </Form.Group>
 
@@ -91,11 +84,11 @@ const Registro = ({ setUsuarioLogueado }) => {
                   })}
                 />
                 <Form.Text className="text-danger">
-                  {errors.direccion?.message}
+                  {errors.direccion && errors.direccion.message}
                 </Form.Text>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Group className="mb-3" controlId="email">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="text"
@@ -110,11 +103,11 @@ const Registro = ({ setUsuarioLogueado }) => {
                   })}
                 />
                 <Form.Text className="text-danger">
-                  {errors.email?.message}
+                  {errors.email && errors.email.message}
                 </Form.Text>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group className="mb-3" controlId="password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
@@ -122,14 +115,14 @@ const Registro = ({ setUsuarioLogueado }) => {
                   {...register("password", {
                     required: "La contraseña es obligatoria",
                     pattern: {
-                      value: /^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}$/,
+                      value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
                       message:
                         "La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número",
                     },
                   })}
                 />
                 <Form.Text className="text-danger">
-                  {errors.password?.message}
+                  {errors.password && errors.password.message}
                 </Form.Text>
               </Form.Group>
 

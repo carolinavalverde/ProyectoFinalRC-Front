@@ -95,10 +95,10 @@ export const login = async (usuario) => {
 
     if (respuesta.ok) {
       const data = await respuesta.json();
-      sessionStorage.setItem("loginVermontRestaurant", JSON.stringify(data)); // Almacenar el token en sessionStorage
-      return data; 
+      sessionStorage.setItem("loginVermontRestaurant", JSON.stringify(data));
+      return data;
     } else {
-      const error = await respuesta.json(); 
+      const error = await respuesta.json();
       throw new Error(`Error al iniciar sesión: ${error.message}`);
     }
   } catch (error) {
@@ -107,44 +107,62 @@ export const login = async (usuario) => {
   }
 };
 
-
-
 //para usuarios
 export const registrarUsuario = async (usuario) => {
+  console.log("Datos del usuario que estás tratando de registrar:", usuario);
+
   try {
     const respuestaListaUsuarios = await fetch(APIUsuarios);
-    console.log(respuestaListaUsuarios)
     const listaUsuarios = await respuestaListaUsuarios.json();
-    console.log(listaUsuarios)
-    const usuarioExistente = listaUsuarios.usuarios.find(
-      (itemUsuario) =>
-      itemUsuario.nombreUsuario === usuario.nombreUsuario ||
-      itemUsuario.email === usuario.email
+    console.log("Lista de usuarios:", listaUsuarios);
+
+    const usuarioExistente = listaUsuarios.find(
+      (itemUsuario) => itemUsuario.email === usuario.email
     );
-    if (!usuarioExistente) {
-      const respuestaRegistro = await fetch(APIUsuarios, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(usuario),
-      });
-      const data = await respuestaRegistro.json();
-      return data;
-    } else {
-      return null;
+    console.log("Usuario existente:", usuarioExistente);
+
+    if (usuarioExistente) {
+      throw new Error("Ya existe un usuario con el correo enviado");
     }
+
+    const respuestaRegistro = await fetch(APIUsuarios, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuario),
+    });
+
+    console.log(
+      "Respuesta del servidor al registrar el usuario:",
+      respuestaRegistro
+    );
+
+    // Si la respuesta es un error, lanzar un error
+    if (!respuestaRegistro.ok) {
+      const error = await respuestaRegistro.json();
+      console.error("Error en la respuesta del servidor:", error); // Mostrar la respuesta completa del servidor
+      throw new Error(
+        error.mensaje || "Error desconocido al registrar el usuario"
+      );
+    }
+
+    const data = await respuestaRegistro.json();
+    return data;
   } catch (error) {
     console.log(error);
+    throw new Error("Error al registrar el usuario");
   }
 };
 
 export const listarUsuarios = async () => {
   try {
     const respuesta = await fetch(APIUsuarios);
-    return respuesta;
+    const listaUsuarios = await respuesta.json();
+    return listaUsuarios;
   } catch (error) {
     console.log(error);
+    return [];
   }
 };
 
@@ -152,8 +170,7 @@ export const borrarUsuario = async (id) => {
   try {
     const respuesta = await fetch(APIUsuarios + "/" + id, {
       method: "DELETE",
-      headers: {
-      },
+      headers: {},
     });
     console.log(respuesta);
     return respuesta;
