@@ -113,7 +113,7 @@ export const registrarUsuario = async (usuario) => {
     console.log(listaUsuarios);
     const usuarioExistente = listaUsuarios.usuarios.find(
       (itemUsuario) =>
-        itemUsuario.nombreUsuario === usuario.nombreUsuario ||
+        itemUsuario.nombreApellido === usuario.nombreApellido ||
         itemUsuario.email === usuario.email
     );
     if (!usuarioExistente) {

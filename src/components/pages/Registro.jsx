@@ -15,30 +15,32 @@ const Registro = ({ setUsuarioLogueado }) => {
 
   const onSubmit = async (usuario) => {
     try {
-      // Validar el formulario aquí
-      if (!usuario.nombreApellido || !usuario.email || !usuario.password) {
-        throw new Error("Todos los campos son obligatorios");
-      }
+      const respuesta = await registrarUsuario({ ...usuario, rol: "Usuario" });
+      console.log(respuesta);
+      const usuarioObj = {
+        email: usuario.email,
+        rol: "Usuario",
+        nombreUsuario: usuario.nombreApellido,
+        contraseña: usuario.contraseña,
+      };
 
-      const respuesta = await registrarUsuario(usuario);
       if (respuesta) {
-        Swal.fire({
-          title: "Registro exitoso",
-          text: "Usuario registrado correctamente",
-          icon: "success",
-        });
-        setUsuarioLogueado(usuario.email);
-        navegacion("/login");
+        sessionStorage.setItem("usuario", JSON.stringify(usuarioObj));
+        Swal.fire(
+          "¡Fantástico!",
+          `Su usuario quedó registrado exitosamente`,
+          "success"
+        );
+        reset();
+        navegacion("/");
+      } else if (respuesta === null) {
+        Swal.fire("Error", "Este usuario o correo ya existe", "error");
+      } else {
+        Swal.fire("Error", "prueba", "error");
       }
     } catch (error) {
-      console.error("Error al registrar el usuario:", error);
-      Swal.fire({
-        title: "Ocurrió un error",
-        text:
-          error.message ||
-          "Hubo un problema al intentar registrar el usuario. Por favor, inténtelo nuevamente más tarde",
-        icon: "error",
-      });
+      console.error("Error al registrar usuario:");
+      Swal.fire("Error", "no se pudo crear el usuario", "error");
     }
   };
 
@@ -49,7 +51,10 @@ const Registro = ({ setUsuarioLogueado }) => {
   return (
     <Container className="d-flex justify-content-center">
       <section className="my-5 col-lg-6 col-md-6 col-sm-8 container bg-white bg-opacity-50 rounded">
-        <Card.Header as="h5" className="TituloRegistro display-6 text-center my-3">
+        <Card.Header
+          as="h5"
+          className="TituloRegistro display-6 text-center my-3"
+        >
           Registro
         </Card.Header>
         <Card.Body className="TextoRegistro d-flex justify-content-center">
@@ -107,12 +112,12 @@ const Registro = ({ setUsuarioLogueado }) => {
                 </Form.Text>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="password">
+              <Form.Group className="mb-3" controlId="contraseña">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="Password"
-                  {...register("password", {
+                  {...register("contraseña", {
                     required: "La contraseña es obligatoria",
                     pattern: {
                       value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
@@ -122,7 +127,7 @@ const Registro = ({ setUsuarioLogueado }) => {
                   })}
                 />
                 <Form.Text className="text-danger">
-                  {errors.password && errors.password.message}
+                  {errors.contraseña && errors.contraseña.message}
                 </Form.Text>
               </Form.Group>
 
