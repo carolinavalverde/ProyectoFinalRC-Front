@@ -20,7 +20,7 @@ const Login = ({ setUsuarioLogueado }) => {
       console.log(respuesta);
       const usuario = {
         rol: respuesta.rol,
-        nombreUsuario: respuesta.nombreUsuario,
+        nombreUsuario: respuesta.nombreApellido,
         contraseña: respuesta.contraseña,
         email: respuesta.email,
       };
