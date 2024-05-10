@@ -7,6 +7,7 @@ const APIUsuarios = import.meta.env.VITE_API_USUARIO;
 console.log(APIUsuarios);
 
 const URLUsuarioGet = import.meta.env.VITE_API_USUARIO_GET;
+console.log(URLUsuarioGet);
 
 export const leerProductos = async () => {
   try {
